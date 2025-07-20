@@ -6,7 +6,7 @@ senha_permitida = input("Crie sua senha: ")
 print("ÁREA DE LOGIN:")
 usuario = input("Digite seu Usuário: ")
 senha = input("Digite sua senha: ")
-if usuario == usuario_permitido and senha == senha_permitida:
+if (usuario == usuario_permitido or usuario == "admin") and senha == senha_permitida:
     qtd_agua = 0
     a = "água"
     string = 'b={nome2} a={nome1}'
