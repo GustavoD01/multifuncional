@@ -56,3 +56,52 @@ Todas essas funções serão implementadas de forma gradual, dentro de um único
 ```bash
 git clone https://github.com/GustavoD01/multifuncional.git
 cd multifuncional
+Ou acesse diretamente o arquivo principal aqui:  
+👉 [lembrete_agua.py](https://github.com/GustavoD01/multifuncional/blob/main/lembrete_agua.py)
+```
+---
+
+## 💡 Requisitos
+
+- Python 3.x  
+- *(No início, apenas bibliotecas padrão do Python)*
+
+---
+
+## 📚 Conceitos Explorados
+
+- Entrada e saída de dados  
+- Conversão de tipos  
+- Estrutura sequencial  
+- Laços de repetição e condicionais *(futuro)*  
+- Modularização *(futuro)*  
+- Interface gráfica *(futuro)*  
+- Salvamento de dados e persistência *(futuro)*
+
+---
+
+## 📈 Progresso
+
+O repositório será atualizado conforme o projeto evolui. Cada versão estará documentada em *commits* e separada por pastas ou arquivos nomeados conforme a etapa.
+
+---
+
+## 🧑‍💻 Autor
+
+Desenvolvido por [Gustavo](https://github.com/GustavoD01) como parte do seu aprendizado contínuo em Python e Engenharia da Computação.
+
+## 🗂️ Histórico de Versões
+
+Nesta seção serão listadas as versões do projeto, com um breve resumo das mudanças e, sempre que possível, uma imagem demonstrando o funcionamento atual.
+
+### 📌 Versão 2.10 – Entrada básica de consumo de água
+
+📸 *Print da versão 2.10:*
+
+![Versão 2.10](prints/versao_2.10.png)
+
+---
+
+### 🔜 Próximas versões
+
+---
