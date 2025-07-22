@@ -6,6 +6,22 @@ Este repositório tem como objetivo acompanhar meu processo de aprendizado em Py
 
 O foco principal é aprender na prática, desenvolvendo pequenos projetos que crescem em funcionalidade e dificuldade com o tempo. A ideia é construir uma base sólida de programação em Python, entendendo bem os fundamentos antes de avançar.
 
+## 🗂️ Histórico de Versões
+
+Nesta seção serão listadas as versões do projeto, com um breve resumo das mudanças e, sempre que possível, uma imagem demonstrando o funcionamento atual.
+
+### 📌 Versão 2.10 – Entrada básica de consumo de água
+
+📸 *Print da versão 2.10:*
+
+![Versão 2.10](prints/versao_2.10.png)
+
+---
+
+### 🔜 Próximas versões
+
+---
+
 ## 🧠 Estrutura de Evolução
 
 O projeto será construído em **etapas**, onde cada fase adiciona novos conhecimentos, recursos e desafios.
@@ -89,19 +105,3 @@ O repositório será atualizado conforme o projeto evolui. Cada versão estará 
 ## 🧑‍💻 Autor
 
 Desenvolvido por [Gustavo](https://github.com/GustavoD01) como parte do seu aprendizado contínuo em Python e Engenharia da Computação.
-
-## 🗂️ Histórico de Versões
-
-Nesta seção serão listadas as versões do projeto, com um breve resumo das mudanças e, sempre que possível, uma imagem demonstrando o funcionamento atual.
-
-### 📌 Versão 2.10 – Entrada básica de consumo de água
-
-📸 *Print da versão 2.10:*
-
-![Versão 2.10](prints/versao_2.10.png)
-
----
-
-### 🔜 Próximas versões
-
----
