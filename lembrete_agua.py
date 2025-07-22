@@ -1,6 +1,6 @@
 a = "ÁGUA"
 
-print("BEM VINDO AO CONTROLE DE INGESTÃO DIÁRIO D'ÁGUA💧 \n\n")
+print("BEM VINDO AO CONTROLE DE INGESTÃO DIÁRIO D'%s💧 \n\n"% (a)) #Variável string
 print(a[0])
 print(a[-3])
 print(a[2])
