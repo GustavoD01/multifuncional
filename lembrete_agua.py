@@ -6,6 +6,8 @@ print(a[-3])
 print(a[2])
 print(a[-1])
 
+print("\n", a[::-1] ,"\n") #inverter string
+
 entrada = input("\n\n Deseja entrar no sistema? (Sim ou Não)").strip().lower()
 
 if entrada == "sim":
@@ -25,16 +27,19 @@ if entrada == "sim":
         print(50 * "_")
         print("\nSeja bem vindo ao controle de água 💧 \n")
         print("Curiosidade: a palavra", a,"é um(a)", type(a))
-        qtd_agua = float(input("informe quantos litros de água você bebeu até agora: "))
-
-        if qtd_agua > 0:
+    
+        #try:
+        qtd_agua = int(input("informe quantos litros de água você bebeu até agora: "))
+        
+        #except:
+            #print("Valor incorreto")
+        if qtd_agua.isdigit():
             print("Parabéns, sua quantidade de água foi alocada corretamente no sistema")
             print("Parabéns, você bebeu ", qtd_agua , " litros de água até agora")
+            print("Em hexadecimal você bebeu", f'{qtd_agua:08X}')
             print("Por hora você bebeu ", f'{qtd_agua/24:.2f}', " água")
-        elif qtd_agua < 0:
-            print("Quantidade de água inserida está incorreta")
         else:
-            print("Valor incompatível, digite um valor correto. Exemplo: 2.14")
+            print("Valor incompatível, digite um valor correto. Exemplo: 2")
     else:
         print("Usuário ou senha incorreta, tente novamente")
 elif entrada == "não" or entrada == "nao":
