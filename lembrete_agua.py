@@ -3,6 +3,16 @@ B = ''
 print(B.zfill(100))
 print(id(A)) #ID da variável A
 
+contador = 3
+print(f'Iniciando programa em {contador}')
+while contador > 0:
+    contador -= 1
+    if contador == 2:
+        print("Não vou mostrar o 2")
+        continue
+    print(f'Iniciando programa em {contador}')
+    
+
 print("BEM VINDO AO CONTROLE DE INGESTÃO DIÁRIO D'%s💧 \n\n"% (A)) #Variável string
 print(A[0])
 print(A[-3])
