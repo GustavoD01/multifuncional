@@ -23,8 +23,8 @@ print("\n", A[::-1] ,"\n") #inverter string
 permissao = False
 
 while permissao == False:
-    entrada = input("\n\n Deseja entrar no sistema? (Sim ou Não)").strip().lower()
-    if entrada == "sim":
+    entrada = input("\n\n Deseja entrar no sistema? (Sim ou Não)").strip().lower() #startswith('s') -> retorna bool de acordo com inicio da palavra e tem o endswith que também retorna bool porém com fim da palavra
+    if entrada == True:
         print("\nCrie um Usuário e Senha")
         usuario_permitido = input("Crie seu Usuário: ")    
         senha_permitida = input("Crie sua senha: ")
