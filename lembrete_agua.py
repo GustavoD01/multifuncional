@@ -1,3 +1,4 @@
+import sys
 A = "ÁGUA" #Se variável for maiúscula, significa que é imutável
 B = ''
 print(B.zfill(100))
@@ -11,16 +12,31 @@ while contador > 0:
         print("Não vou mostrar o 2")
         continue
     print(f'Iniciando programa em {contador}')
-    
 
-print("BEM VINDO AO CONTROLE DE INGESTÃO DIÁRIO D'%s💧 \n\n"% (A)) #Variável string
+FRASE = "BEM VINDO AO CONTROLE DE INGESTÃO DIÁRIO D'%s💧 \n\n"% (A) #Variável string
+print(FRASE)
+print("A frase acima contém ", FRASE.count('A') ," carateres 'A' que foram contados com o método count")
 print(A[0])
 print(A[-3])
 print(A[2])
 print(A[-1])
 
 print("\n", A[::-1] ,"\n") #inverter string
-permissao = False
+
+
+numero_correto = "4"
+
+for tentativa in range(5):
+    numero_digitado = input("Digite o número: ").strip()
+    if numero_digitado == numero_correto:
+        print ("Acesso permitido")
+    else: 
+        print(f'Acesso negado, tente novamente: {4 - tentativa} restantes')
+else:
+    print("Esgotaram-se as tentativas, reiniciei o programa e tente novamente.")
+    sys.exit()
+
+permissao = False  
 
 while permissao == False:
     entrada = input("\n\n Deseja entrar no sistema? (Sim ou Não)").strip().lower() #startswith('s') -> retorna bool de acordo com inicio da palavra e tem o endswith que também retorna bool porém com fim da palavra
