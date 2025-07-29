@@ -1,9 +1,12 @@
 import sys
+import os
+
 A = "ÁGUA" #Se variável for maiúscula, significa que é imutável
 B = ''
 print(B.zfill(100))
 print(id(A)) #ID da variável A
 
+#Contagem regressiva
 contador = 3
 print(f'Iniciando programa em {contador}')
 while contador > 0:
@@ -23,63 +26,85 @@ print(A[-1])
 
 print("\n", A[::-1] ,"\n") #inverter string
 
+#Advinhar número de 0 a 5
+jogo = True
+while jogo == True:
+    jogar = input("Deseja jogar 'escolha um número?' (Sim ou Não): ").strip().lower()
+    if jogar == "sim":
+        numero_correto = "4"
+        for tentativa in range(5):
+            numero_digitado = input("Escolha um número de 0 a 5: ").strip()
+            if numero_digitado == numero_correto:
+                print ("Acesso permitido")
+                break
+            else: 
+                print(f'Acesso negado, tente novamente: {4 - tentativa} restantes')
+        else:
+            print("Esgotaram-se as tentativas, tente novamente.")
+            sys.exit()
+    elif jogar in ["nao", "não"]:
+    #Acesso ao sistema
+        jogo = False
+while True:
+    entrada = input("Deseja entrar no sistema? (Sim ou Não): ").strip().lower() #startswith('s') -> retorna bool de acordo com inicio da palavra e tem o endswith que também retorna bool porém com fim da palavra
+    if entrada == 'sim':
+            print("\nCrie um Usuário e Senha")
+            usuario_permitido = input("Crie seu Usuário: ")    
+            senha_permitida = input("Crie sua senha: ")
 
-numero_correto = "4"
-
-for tentativa in range(5):
-    numero_digitado = input("Digite o número: ").strip()
-    if numero_digitado == numero_correto:
-        print ("Acesso permitido")
-    else: 
-        print(f'Acesso negado, tente novamente: {4 - tentativa} restantes')
-else:
-    print("Esgotaram-se as tentativas, reiniciei o programa e tente novamente.")
-    sys.exit()
-
-permissao = False  
-
-while permissao == False:
-    entrada = input("\n\n Deseja entrar no sistema? (Sim ou Não)").strip().lower() #startswith('s') -> retorna bool de acordo com inicio da palavra e tem o endswith que também retorna bool porém com fim da palavra
-    if entrada == True:
-        print("\nCrie um Usuário e Senha")
-        usuario_permitido = input("Crie seu Usuário: ")    
-        senha_permitida = input("Crie sua senha: ")
-
-        print("ÁREA DE LOGIN:")
-        permissao = False
-        
-        while permissao == False:
-            usuario = input("Digite seu Usuário: ")
-            senha = input("Digite sua senha: ")
-            if (usuario == usuario_permitido or usuario == "admin") and \
-            senha == senha_permitida:
-                permissao = True
-                qtd_agua = 0
-                string = 'b={nome2} a={nome1}'
-                formato = string.format( #quando uma função está dentro de um objeto é chamada de método
-                    nome1=A, nome2=qtd_agua #parâmetros
-                )
-                print(50 * "_")
-                print("\nSeja bem vindo ao controle de água 💧 \n")
-                print("Curiosidade: a palavra", A,"é um(a)", type(A))
-            
-                #try:
-                qtd_agua = input("informe quantos litros de água você bebeu até agora: ")
+            print("ÁREA DE LOGIN:")
+            permissao = False
                 
-                #except:
-                    #print("Valor incorreto")
-                if qtd_agua.isdigit():
-                    agua = int(qtd_agua)
-                    print("Parabéns, sua quantidade de água foi alocada corretamente no sistema")
+            while permissao == False:
+                usuario = input("Digite seu Usuário: ")
+                senha = input("Digite sua senha: ")
+                if (usuario == usuario_permitido or usuario == "admin") and \
+                senha == senha_permitida:
+                    permissao = True
+                    lista_nomes = 0
+                    string = 'b={nome2} a={nome1}'
+                    formato = string.format( #quando uma função está dentro de um objeto é chamada de método
+                    nome1=A, nome2=lista_nomes #parâmetros
+                    )
+                    print(50 * "_")
+                    print("\nSeja bem vindo ao controle de água 💧 \n")
+                    print("Curiosidade: a palavra", A,"é um(a)", type(A))
+                
+                    lista_nomes = []
+                    lista_nomes.append(input("informe quantos litros de água você bebeu até agora: "))
+                while lista_nomes[0].isdigit() == False:
+                    print("Valor incompatível, digite um valor correto. Exemplo: 2")
+                    lista_nomes.pop()
+                    lista_nomes.append(input("informe quantos litros de água você bebeu até agora: "))
+                else:
+                    lista_nomes.append(input("informe seu nome: "))
+                    #os.system('cls')
+
+        #Inserção código CRUD simples de lista
+            permissao = False
+            while permissao == False:
+                entrada = input("Deseja alterar/excluir algum item digitado? (Sim ou Não): ").strip().lower()
+                if entrada == "sim":
+                    while True:
+                        valor_a_alterar = input("Digite o número do que deseja alterar? (1 = Quantidade e 2 = Nome)")
+                        if valor_a_alterar == "1":
+                            print("Você digitou 1")
+                            break
+                        elif valor_a_alterar == "2":
+                            print("Você digitou 2")
+                            break
+                        else:
+                            continue
+                elif entrada in ["não", "nao"]:
+                    permissao = True
+                    print(lista_nomes)
+                    agua = int(lista_nomes[0])
+                    print("Parabéns ", lista_nomes[1], " sua quantidade de água foi alocada corretamente no sistema")
                     print("Parabéns, você bebeu ", agua , " litros de água até agora")
-                    print("Em hexadecimal você bebeu", f'{agua:08X}')
+                    print("Em hexadecimal você bebeu", f'{agua:08X}')                        
                     print("Por hora você bebeu ", f'{agua/24:.2f}', " água")
                 else:
-                    print("Valor incompatível, digite um valor correto. Exemplo: 2")
-            else:
-                print("Usuário ou senha incorreta, tente novamente")
-    elif entrada == "não" or entrada == "nao":
+                    print("Valor incorreto, Digite novamente!")
+    elif entrada in ["nao", "não"]:
         print("Saindo do sistema...")
         break
-    else:
-        print("Digite Sim ou Não: ")
