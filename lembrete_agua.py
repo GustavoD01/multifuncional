@@ -81,20 +81,44 @@ while True:
                     #os.system('cls')
 
         #Inserção código CRUD simples de lista
+            lista_recuperar = []
             permissao = False
             while permissao == False:
-                entrada = input("Deseja alterar/excluir algum item digitado? (Sim ou Não): ").strip().lower()
-                if entrada == "sim":
+                entrada = input("Deseja alterar/recuperar algum item digitado? (Digite 'Recuperar' ou 'Alterar' ou 'Não' ): ").strip().lower()
+                if entrada == "alterar":
                     while True:
-                        valor_a_alterar = input("Digite o número do que deseja alterar? (1 = Quantidade e 2 = Nome)")
+                        valor_a_alterar = input("Digite o número do que deseja alterar? (1 = Quantidade e 2 = Nome): ")
                         if valor_a_alterar == "1":
-                            print("Você digitou 1")
-                            break
+                            valor_a_ser_inserido = input("Digite o valor desejado: ")
+                            while valor_a_ser_inserido.isdigit() == False:
+                                valor_a_ser_inserido = int(input("Digite novamente o valor desejado: "))
+                            else:
+                                valor_01 = lista_nomes[0]
+                                lista_recuperar.append(valor_01)
+                                del lista_nomes[0]
+                                lista_nomes.insert(0, valor_a_ser_inserido)
+                                print("Valor alterado com sucesso!")
+                                break
                         elif valor_a_alterar == "2":
-                            print("Você digitou 2")
-                            break
+                            valor_a_ser_inserido = input("Digite o nome desejado: ")
+                            while isinstance(valor_a_ser_inserido, str) == False:
+                                valor_a_ser_inserido = int(input("Digite novamente o nome desejado: "))
+                            else:
+                                valor_01 = lista_nomes[1]
+                                lista_recuperar.append(valor_01)
+                                del lista_nomes[1]
+                                lista_nomes.insert(1, valor_a_ser_inserido)
+                                print("Nome alterado com sucesso!")
+                                break
                         else:
                             continue
+                elif entrada == 'recuperar':
+                    if lista_recuperar == []:
+                        print("Você não tem valores a recuperar, insira uma opção válida")
+                    else:
+                        valor_a_recuperar = input("Digite o que deseja recuperar (1 - Quantidade e 2 - Nome): ")
+                        print(lista_recuperar)
+                        print("Valor recuperado com sucesso!")
                 elif entrada in ["não", "nao"]:
                     permissao = True
                     print(lista_nomes)
