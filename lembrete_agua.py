@@ -49,36 +49,54 @@ while True:
     entrada = input("Deseja entrar no sistema? (Sim ou Não): ").strip().lower() #startswith('s') -> retorna bool de acordo com inicio da palavra e tem o endswith que também retorna bool porém com fim da palavra
     if entrada == 'sim':
             print("\nCrie um Usuário e Senha")
-            usuario_permitido = input("Crie seu Usuário: ")    
-            senha_permitida = input("Crie sua senha: ")
+            while True:
+                usuario_permitido = input("Crie seu Usuário: ")    
+                senha_permitida = input("Crie sua senha: ")
+                if len(usuario_permitido) < 3 and len(senha_permitida) < 3:
+                    print("Digite um usuário ou senha com pelo menos 3 dígitos")
+                else:
+                    break
 
             print("ÁREA DE LOGIN:")
-            permissao = False
                 
-            while permissao == False:
+            while True:
                 usuario = input("Digite seu Usuário: ")
                 senha = input("Digite sua senha: ")
-                if (usuario == usuario_permitido or usuario == "admin") and \
-                senha == senha_permitida:
-                    permissao = True
-                    lista_nomes = 0
-                    string = 'b={nome2} a={nome1}'
-                    formato = string.format( #quando uma função está dentro de um objeto é chamada de método
-                    nome1=A, nome2=lista_nomes #parâmetros
-                    )
-                    print(50 * "_")
-                    print("\nSeja bem vindo ao controle de água 💧 \n")
-                    print("Curiosidade: a palavra", A,"é um(a)", type(A))
-                
-                    lista_nomes = []
-                    lista_nomes.append(input("informe quantos litros de água você bebeu até agora: "))
-                while lista_nomes[0].isdigit() == False:
-                    print("Valor incompatível, digite um valor correto. Exemplo: 2")
-                    lista_nomes.pop()
-                    lista_nomes.append(input("informe quantos litros de água você bebeu até agora: "))
+                if (usuario == usuario_permitido or usuario == "admin") and (
+                senha == senha_permitida):
+                    # lista_nomes = 0
+                    # string = 'b={nome2} a={nome1}'
+                    # formato = string.format #quando uma função está dentro de um objeto é chamada de método
+                    # nome1=A, nome2=lista_nomes #parâmetros
+                    break
                 else:
-                    lista_nomes.append(input("informe seu nome: "))
+                    print("Usuário ou senha incorreto! Tente novamente!")
+                    continue
+                
+            print(50 * "_")
+            print("\nSeja bem vindo ao controle de água 💧 \n")
+            print("Curiosidade: a palavra", A,"é um(a)", type(A))
+            lista_nomes = []
+            lista_nomes.append(input("informe quantos litros de água você bebeu até agora: "))
+
+            while lista_nomes[0].isdigit() == False:
+                print("Valor incompatível, digite um valor correto. Exemplo: 2")
+                lista_nomes.pop()
+                lista_nomes.append(input("informe quantos litros de água você bebeu até agora: "))
+            else:
+                while True:
+                    valor_01 = input("informe seu nome: ")
+                    if len(valor_01) >= 3:
+                        lista_nomes.append(valor_01)
+                        break
+                    else:
+                        print("Seu nome deve conter pelo menos 3 caracteres!")
                     #os.system('cls')
+            indices = range(len(lista_nomes))
+            
+            for indice in indices:
+                print(f"Valor {lista_nomes[indice]} inserido com sucesso no índice: {indice}")
+
 
         #Inserção código CRUD simples de lista
             lista_recuperar = []
@@ -145,7 +163,7 @@ while True:
                                 print("Nome: ", lista_nomes[1], ", quantidade de água ingerida: ", lista_nomes[0])
                                 break
                             elif valor_a_recuperar == 'todos':
-                                lista_nomes = lista_recuperar
+                                lista_nomes = lista_recuperar.copy()
                                 print("Dados recuperados com sucesso!")
                                 print("Nome: ", lista_nomes[1], ", quantidade de água ingerida: ", lista_nomes[0])
                                 break
