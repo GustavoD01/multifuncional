@@ -87,38 +87,71 @@ while True:
                 entrada = input("Deseja alterar/recuperar algum item digitado? (Digite 'Recuperar' ou 'Alterar' ou 'Não' ): ").strip().lower()
                 if entrada == "alterar":
                     while True:
-                        valor_a_alterar = input("Digite o número do que deseja alterar? (1 = Quantidade e 2 = Nome): ")
+                        valor_a_alterar = input("Digite o número do que deseja alterar? ('1' = Quantidade, '2' = Nome ou 'TODOS'): ").strip().lower()   
                         if valor_a_alterar == "1":
                             valor_a_ser_inserido = input("Digite o valor desejado: ")
                             while valor_a_ser_inserido.isdigit() == False:
-                                valor_a_ser_inserido = int(input("Digite novamente o valor desejado: "))
+                                valor_a_ser_inserido = input("Digite novamente o valor desejado: ")
                             else:
                                 valor_01 = lista_nomes[0]
                                 lista_recuperar.append(valor_01)
                                 del lista_nomes[0]
                                 lista_nomes.insert(0, valor_a_ser_inserido)
                                 print("Valor alterado com sucesso!")
+                                print("Nome: ", lista_nomes[1], ", quantidade de água ingerida: ", lista_nomes[0])
                                 break
                         elif valor_a_alterar == "2":
                             valor_a_ser_inserido = input("Digite o nome desejado: ")
                             while isinstance(valor_a_ser_inserido, str) == False:
-                                valor_a_ser_inserido = int(input("Digite novamente o nome desejado: "))
+                                valor_a_ser_inserido = input("Digite novamente o nome desejado: ")
                             else:
                                 valor_01 = lista_nomes[1]
                                 lista_recuperar.append(valor_01)
                                 del lista_nomes[1]
                                 lista_nomes.insert(1, valor_a_ser_inserido)
                                 print("Nome alterado com sucesso!")
+                                print("Nome: ", lista_nomes[1], ", quantidade de água ingerida: ", lista_nomes[0])
                                 break
+                        elif valor_a_alterar == 'todos':
+                            valor_a_ser_inserido = input("Digite a quantidade desejada: ")
+                            valor_01 = lista_nomes[0]
+                            lista_recuperar.append(valor_01)
+                            del lista_nomes[0]
+                            lista_nomes.insert(0, valor_a_ser_inserido)
+                            valor_a_ser_inserido = input("Digite o nome desejado: ")
+                            valor_01 = lista_nomes[1]
+                            lista_recuperar.append(valor_01)
+                            del lista_nomes[1]
+                            lista_nomes.insert(1, valor_a_ser_inserido)
+                            print("Valores alterados com sucesso!")
+                            print("Nome: ", lista_nomes[1], ", quantidade de água ingerida: ", lista_nomes[0])
+                            break
                         else:
                             continue
                 elif entrada == 'recuperar':
                     if lista_recuperar == []:
                         print("Você não tem valores a recuperar, insira uma opção válida")
                     else:
-                        valor_a_recuperar = input("Digite o que deseja recuperar (1 - Quantidade e 2 - Nome): ")
-                        print(lista_recuperar)
-                        print("Valor recuperado com sucesso!")
+                        valor_a_recuperar = input("Digite o que deseja recuperar ('1' - Quantidade, '2' - Nome ou 'TODOS'): ").strip().lower()
+                        while True:
+                            if valor_a_recuperar == '1':
+                                lista_nomes[0] = lista_recuperar[0]
+                                print("Quantidade recuperado com sucesso!")
+                                print("Nome: ", lista_nomes[1], ", quantidade de água ingerida: ", lista_nomes[0])
+                                break
+                            elif valor_a_recuperar == '2':
+                                lista_nomes[1] = lista_recuperar[1]
+                                print("Nome recuperado com sucesso!")
+                                print("Nome: ", lista_nomes[1], ", quantidade de água ingerida: ", lista_nomes[0])
+                                break
+                            elif valor_a_recuperar == 'todos':
+                                lista_nomes = lista_recuperar
+                                print("Dados recuperados com sucesso!")
+                                print("Nome: ", lista_nomes[1], ", quantidade de água ingerida: ", lista_nomes[0])
+                                break
+                            else:
+                                print("Digite '1' ou '2'!")
+                                continue
                 elif entrada in ["não", "nao"]:
                     permissao = True
                     print(lista_nomes)
