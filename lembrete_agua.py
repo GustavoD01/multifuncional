@@ -178,6 +178,9 @@ while True:
                     print("Parabéns, você bebeu ", agua , " litros de água até agora")
                     print("Em hexadecimal você bebeu", f'{agua:08X}')                        
                     print("Por hora você bebeu ", f'{agua/24:.2f}', " água")
+                    _, nome, *_ = lista_nomes
+                    print(_)
+                    print(nome)
                 else:
                     print("Valor incorreto, Digite novamente!")
     elif entrada in ["nao", "não"]:
