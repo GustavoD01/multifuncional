@@ -8,11 +8,23 @@ while True:
             print(lista_geral_users)
     elif qtd_user == '1':
         lista_geral_users = []
-        var_1 = input(("Digite seu nome: "))
-        lista_geral_users.append(var_1)
-        var_2 = input(("Digite quanto de água você ingeriu: "))
-        lista_geral_users.append(var_2)
-        print(lista_geral_users)
+        while True:
+            var_1 = input(("Digite seu nome: "))
+            if len(var_1) >= 3:
+                lista_geral_users.append(var_1)
+                print("Nome inserido com sucesso!")
+                break
+            else:
+                print("Valor incorreto para nome")
+        while True:
+            var_2 = input(("Digite quanto de água você ingeriu: "))
+            if var_2.isdigit() == True: 
+                lista_geral_users.append(var_2)
+                print("Quantidade inserida com sucesso!")
+                print(lista_geral_users)
+                break
+            else:
+                print("Quantidade inserida incorreta!")
     elif qtd_user == '2':
         lista_geral_users = []
         var_1 = input(("Digite o nome do primeiro usuário: "))
