@@ -24,6 +24,12 @@ Nesta seção serão listadas as versões do projeto, com um breve resumo das mu
 
 ---
 
+📸 *Print da versão 2.30:*
+
+![Versão 2.30](prints/versao_2.30.png)
+
+---
+
 ### 🔜 Próximas versões
 
 ---
