@@ -31,6 +31,9 @@ while True:
             if continuar == 's':
                 var_1 = input(("Digite o nome do novo usuário: "))
                 var_2 = input(("Digite a quantidade de água ingerida pelo novo usuário: "))
+                lista_insercao_users = [var_1, var_2]
+                lista_geral_users.append(lista_insercao_users)
+                print(lista_geral_users)
             elif continuar == 'n':
                 break
             else:
