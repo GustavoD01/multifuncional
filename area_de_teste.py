@@ -27,22 +27,67 @@ while True:
                 print("Quantidade inserida incorreta!")
     elif qtd_user == '2':
         lista_geral_users = []
-        var_1 = input(("Digite o nome do primeiro usuário: "))
-        var_2 = input(("Digite a quanidade de água ingerida pelo primeiro usuário : "))
+        while True:
+            var_recebe = input(("Digite o nome do primeiro usuário: "))
+            if len(var_recebe) >= 3:
+                var_1 = var_recebe
+                print("Nome inserido com sucesso!")
+                break
+            else:
+                print("Nome inserido está incorreto!")
+        while True:
+            var_recebe = input(("Digite a quanidade de água ingerida pelo primeiro usuário : "))
+            if var_recebe.isdigit() == True:
+                var_2 = var_recebe
+                print("Quantidade inserida com sucesso!")
+                break
+            else:
+                print("Quantidade inserida está incorreta!")
+            
         lista_insercao_users = [var_1, var_2]
         lista_geral_users.append(lista_insercao_users)
         print(lista_geral_users)
-    # Inserção dos segundo usuário 
-        var_1 = input(("Digite o nome do segundo usuário: "))
-        var_2 = input(("Digite a quantidade de água ingerida pelo segundo usuário: "))
+    # Inserção do segundo usuário 
+        while True:
+            var_recebe = input(("Digite o nome do segundo usuário: "))
+            if len(var_1) >= 3:
+                var_1 = var_recebe
+                print("Nome inserido com sucesso!")
+                break
+            else:
+                print("Nome inserido está incorreto!")
+        while True:
+            var_recebe = input(("Digite a quantidade de água ingerida pelo segundo usuário: "))
+            if var_recebe.isdigit() == True:
+                var_2 = var_recebe
+                print("Quantidade inserida com sucesso!")
+                break
+            else:
+                print("Quantidade inserida está incorreta!")
+                
         lista_insercao_users = [var_1, var_2]
         lista_geral_users.append(lista_insercao_users)
         print(lista_geral_users)
         while True:
             continuar = input(("Deseja adicionar mais um usuário? [S]im ou [N]ão: ")).strip().lower()
             if continuar == 's':
-                var_1 = input(("Digite o nome do novo usuário: "))
-                var_2 = input(("Digite a quantidade de água ingerida pelo novo usuário: "))
+                while True:
+                    var_recebe = input(("Digite o nome do novo usuário: "))
+                    if len(var_1) >= 3:
+                        var_1 = var_recebe
+                        print("Nome inserido com sucesso!")
+                        break
+                    else:
+                        print("Nome inserido está incorreto!")
+                while True:
+                    var_recebe = input(("Digite a quantidade de água ingerida pelo novo usuário: "))
+                    if var_recebe.isdigit() == True:
+                        var_2 = var_recebe
+                        print("Quantidade inserida com sucesso!")
+                        break
+                    else:
+                        print("Quantidade inserida está incorreta!")
+
                 lista_insercao_users = [var_1, var_2]
                 lista_geral_users.append(lista_insercao_users)
                 print(lista_geral_users)
@@ -53,3 +98,18 @@ while True:
     else:
         print("Valor inválido, Tente Novamente!")
         continue
+                            #
+                            #T.E.S.T.E
+                            # lista_recebe_tudo = []
+
+                            # var_recebe = input("Digite o 1° valor: ")
+                            # var_01 = var_recebe
+                            # print("Este é o var 01: ",var_01)
+                            # var_recebe = input("Digite o 2° valor: ")
+                            # var_02 = var_recebe
+                            # print("Este é o var 02: ",var_02)
+
+                            # lista_recebe = [var_01, var_02]
+                            # print("Esta é a lista recebe: ",lista_recebe)
+                            # lista_recebe_tudo.append(lista_recebe)
+                            # print("Esta é a lista recebe tudo: ",lista_recebe_tudo)
