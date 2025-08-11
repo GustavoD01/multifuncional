@@ -98,21 +98,110 @@ while True:
             #Formas de criar uma tupla:
             #lista_nomes = '1', 2, '3'
             #lista_nomes = ('1', 2, '3') -> uso de parênteses ao invés de
-            lista_nomes.append(input("informe quantos litros de água você bebeu até agora: "))
-
-            while lista_nomes[0].isdigit() == False:
-                print("Valor incompatível, digite um valor correto. Exemplo: 2")
-                lista_nomes.pop()
-                lista_nomes.append(input("informe quantos litros de água você bebeu até agora: "))
-            else:
-                while True:
-                    valor_01 = input("informe seu nome: ")
-                    if len(valor_01) >= 3:
-                        lista_nomes.append(valor_01)
-                        break
+        #
+        # NOVA INMPLENTAÇÃO
+            lista_geral_users = []
+            while True:
+                qtd_user = input(("Digite os seguintes caracteres para: [F]inalizar o programa , caso queira adicionar [1] pessoa ou para [2] ou mais pessoas: "))
+                if qtd_user == 'i':
+                    if len(lista_geral_users) <= 1:
+                        print("Lista está vazia, digite um ou mais usuários para iniciar o programa")
                     else:
-                        print("Seu nome deve conter pelo menos 3 caracteres!")
-                    #os.system('cls')
+                        print(lista_geral_users)
+                elif qtd_user == '1':
+                    lista_geral_users = []
+                    while True:
+                        var_1 = input(("Digite seu nome: "))
+                        if len(var_1) >= 3:
+                            lista_geral_users.append(var_1)
+                            print("Nome inserido com sucesso!")
+                            break
+                        else:
+                            print("Valor incorreto para nome")
+                    while True:
+                        var_2 = input(("Digite quanto de água você ingeriu: "))
+                        if var_2.isdigit() == True: 
+                            lista_geral_users.append(var_2)
+                            print("Quantidade inserida com sucesso!")
+                            print(lista_geral_users)
+                            break
+                        else:
+                            print("Quantidade inserida incorreta!")
+                elif qtd_user == '2':
+                    lista_geral_users = []
+                    while True:
+                        var_recebe = input(("Digite o nome do primeiro usuário: "))
+                        if len(var_recebe) >= 3:
+                            var_1 = var_recebe
+                            print("Nome inserido com sucesso!")
+                            break
+                        else:
+                            print("Nome inserido está incorreto!")
+                    while True:
+                        var_recebe = input(("Digite a quanidade de água ingerida pelo primeiro usuário : "))
+                        if var_recebe.isdigit() == True:
+                            var_2 = var_recebe
+                            print("Quantidade inserida com sucesso!")
+                            break
+                        else:
+                            print("Quantidade inserida está incorreta!")
+                        
+                    lista_insercao_users = [var_1, var_2]
+                    lista_geral_users.append(lista_insercao_users)
+                    print(lista_geral_users)
+                # Inserção do segundo usuário 
+                    while True:
+                        var_recebe = input(("Digite o nome do segundo usuário: "))
+                        if len(var_1) >= 3:
+                            var_1 = var_recebe
+                            print("Nome inserido com sucesso!")
+                            break
+                        else:
+                            print("Nome inserido está incorreto!")
+                    while True:
+                        var_recebe = input(("Digite a quantidade de água ingerida pelo segundo usuário: "))
+                        if var_recebe.isdigit() == True:
+                            var_2 = var_recebe
+                            print("Quantidade inserida com sucesso!")
+                            break
+                        else:
+                            print("Quantidade inserida está incorreta!")
+                            
+                    lista_insercao_users = [var_1, var_2]
+                    lista_geral_users.append(lista_insercao_users)
+                    print(lista_geral_users)
+                    while True:
+                        continuar = input(("Deseja adicionar mais um usuário? [S]im ou [N]ão: ")).strip().lower()
+                        if continuar == 's':
+                            while True:
+                                var_recebe = input(("Digite o nome do novo usuário: "))
+                                if len(var_1) >= 3:
+                                    var_1 = var_recebe
+                                    print("Nome inserido com sucesso!")
+                                    break
+                                else:
+                                    print("Nome inserido está incorreto!")
+                            while True:
+                                var_recebe = input(("Digite a quantidade de água ingerida pelo novo usuário: "))
+                                if var_recebe.isdigit() == True:
+                                    var_2 = var_recebe
+                                    print("Quantidade inserida com sucesso!")
+                                    break
+                                else:
+                                    print("Quantidade inserida está incorreta!")
+
+                            lista_insercao_users = [var_1, var_2]
+                            lista_geral_users.append(lista_insercao_users)
+                            print(lista_geral_users)
+                        elif continuar == 'n':
+                            break
+                        else:
+                            print("Valor inválido, Tente Novamente!")
+                else:
+                    print("Valor inválido, Tente Novamente!")
+                    continue
+        # FIM NOVA IMPLEMENTAÇÃO
+        #
             indices = range(len(lista_nomes))
             
             for indice in indices:

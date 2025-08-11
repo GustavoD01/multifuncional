@@ -1,6 +1,6 @@
 lista_geral_users = []
 while True:
-    qtd_user = input(("Digite [I] para iniciar o programa, caso  [1] pessoa ou para [2] ou mais pessoas: "))
+    qtd_user = input(("Digite os seguintes caracteres para: [F]inalizar o programa , caso  [1] pessoa ou para [2] ou mais pessoas: "))
     if qtd_user == 'i':
         if len(lista_geral_users) <= 1:
             print("Lista está vazia, digite um ou mais usuários para iniciar o programa")
