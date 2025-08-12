@@ -93,7 +93,6 @@ while True:
             print(50 * "_")
             print("\nSeja bem vindo ao controle de água 💧 \n")
             print("Curiosidade: a palavra", A,"é um(a)", type(A))
-            lista_nomes = []
             #Caso a lista_nomes contivesse valores que nunca seriam alterados, seria desejável que criasse uma tupla
             #Formas de criar uma tupla:
             #lista_nomes = '1', 2, '3'
@@ -102,13 +101,8 @@ while True:
         # NOVA INMPLENTAÇÃO
             lista_geral_users = []
             while True:
-                qtd_user = input(("Digite os seguintes caracteres para: [F]inalizar o programa , caso queira adicionar [1] pessoa ou para [2] ou mais pessoas: "))
-                if qtd_user == 'i':
-                    if len(lista_geral_users) <= 1:
-                        print("Lista está vazia, digite um ou mais usuários para iniciar o programa")
-                    else:
-                        print(lista_geral_users)
-                elif qtd_user == '1':
+                qtd_user = input(("Digite os seguintes caracteres para:  Adicionar somente [1] pessoa ou para [2] ou mais pessoas ou [F]inalizar a inserção de usuários: ")).strip().lower()
+                if qtd_user == '1':
                     lista_geral_users = []
                     while True:
                         var_1 = input(("Digite seu nome: "))
@@ -197,15 +191,21 @@ while True:
                             break
                         else:
                             print("Valor inválido, Tente Novamente!")
+                elif qtd_user == 'f':
+                    if len(lista_geral_users) <= 1:
+                        print("Lista está vazia, digite um ou mais usuários para iniciar o programa")
+                    else:
+                        print(lista_geral_users)
+                        break
                 else:
                     print("Valor inválido, Tente Novamente!")
                     continue
         # FIM NOVA IMPLEMENTAÇÃO
         #
-            indices = range(len(lista_nomes))
+            indices = range(len(lista_geral_users))
             
             for indice in indices:
-                print(f"Valor {lista_nomes[indice]} inserido com sucesso no índice: {indice}")
+                print(f"Valor {lista_geral_users[indice]} inserido com sucesso no índice: {indice}")
 
 #
 #Inserção código CRUD simples de lista
