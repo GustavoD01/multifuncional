@@ -1,19 +1,70 @@
+
 #
-#Inserção código CRUD simples de lista
+#Essa nova implementação possuirá "crud" baseado em listas, simulando as opreações básicas. Como se trata de List in List, será necessário captação de 2 índices
 #
 lista_geral_users = [['GUSTAVO', '10'], ['ANA','2'],['ROBERTA','3']]
 lista_recuperar = lista_geral_users
-permissao = False
+print(20 * "-" + "Lista com índices" + 20 * "-")
+while True:
+    indices = range(len(lista_geral_users))
+    for indice in indices:
+        print(f"Valor {lista_geral_users[indice]} está no índice: {indice + 1}")
 
-indices = range(len(lista_geral_users))
-for indice in indices:
-                print(f"Valor {lista_geral_users[indice]} está no índice: {indice}")
+    entrada = input("\nDeseja [A]lterar, [R]ecuperar algum item digitado ou [N]ão: ").strip().lower()
+    indice_externo = ""
 
-seletor_lista = input("Digite o índice desejado: ")
-seletor_lista = int(seletor_lista)
+    if entrada == "a":
+        indice_interno = ""
+        ##########################
+        #Pedindo índice "externo"#
+        ##########################
+        while True:
+            indice_externo = int(input("Digite o índice desejado: "))
+            if indice_externo <= len(lista_geral_users):
+                break
+            else:
+                print("Índice maior do que a lista, tente outro por favor!")
+        indice_externo = (indice_externo - 1)
+        print(f"Você selecionou '{lista_geral_users[indice_externo]}'")
+            #######################
+            #Pede índice "interno"#
+            #######################
+        while indice_interno not in [0, 1]:
+            deseja_alterar = input("Deseja alterar o [N]ome ou [Q]uantidade: ").lower().strip()
+            if deseja_alterar == "n":
+                indice_interno = 0
+                lista_a_recuperar_salva = lista_geral_users[indice_externo]
+                del lista_geral_users[indice_externo][indice_interno]
+                nome_a_ser_alterado = input("Digite o nome desejado: ")
+                lista_geral_users[indice_externo].insert(indice_interno, nome_a_ser_alterado)
+                print("Valor alterado com sucesso!")
+                # lista_enumerada = enumerate(lista_geral_users)
+                print(60 * "-")
+                print(f'Situação atual da lista: {lista_geral_users[indice]} está no índice: {indice + 1}')
+                print(60 * "-")
+                print("(*Índice atual e item respectivamente)\n")
+            elif deseja_alterar == "q":
+                    indice_interno = 1
+                    quantidade_a_ser_alterada = input("Digite a quantidade desejada: ")
+            else:
+                    print("Digite um valor válido!")
 
-print(len(lista_geral_users))
-print(lista_geral_users[seletor_lista])
+    elif entrada == "r":
+        print("Aguardando próximas features")
+
+    elif entrada == "n":
+        print("Aguardando próximas features")
+
+        ########################
+        #Tratamento erro básico#
+        #Posteriormente poderá #
+        #ser implementado try /#
+        #except                #
+        ########################  
+    else: 
+        print("Digite um valor válido")        
+
+
 
 # while True:
 #     entrada = input("\nDeseja alterar/recuperar algum item digitado? (Digite 'Recuperar' ou 'Alterar' ou 'Não' ): ").strip().lower()
