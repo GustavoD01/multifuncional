@@ -1,11 +1,10 @@
 import os
+import copy
 #
 #Essa nova implementação possuirá "crud" baseado em listas, simulando as opreações básicas. Como se trata de List in List, será necessário captação de 2 índices
 #
 lista_geral_users = [['GUSTAVO', '10'], ['ANA','2'],['ROBERTA','3']]
-lista_recuperar = lista_geral_users
-
-lista_a_recuperar_salva = []
+lista_a_recuperar_salva = [["", ""] for _ in lista_geral_users]
 
 while True:
     print("\n", 20 * "-" + "Lista com índices" + 20 * "-")
@@ -31,13 +30,13 @@ while True:
 
                     break
                 else:
-                    print("ERRO: Índice maior do que a lista, tente outro por favor!")
+                    print("Erro: Índice maior do que a lista, tente outro por favor!")
             except ValueError:
-                print("ERRO: Por favor digite um tipo correto")
+                print("Erro: Por favor digite um tipo correto")
             except IndexError:
-                print("ERRO: Índice não existe na lista")
+                print("Erro: Índice não existe na lista")
             except Exception:
-                print("ERRO: Erro Desconhecido")
+                print("Erro: Erro Desconhecido")
                 
         indice_externo = (indice_externo - 1)
         print(f"Você selecionou '{lista_geral_users[indice_externo]}'")
@@ -54,7 +53,7 @@ while True:
                 while True:
                     nome_a_ser_alterado = input("Digite o nome desejado: ")
                     if len(nome_a_ser_alterado) >= 3:
-                        lista_a_recuperar_salva = lista_geral_users[indice_externo]
+                        lista_a_recuperar_salva[indice_externo] = copy.deepcopy(lista_geral_users[indice_externo])
                         del lista_geral_users[indice_externo][indice_interno]
                         lista_geral_users[indice_externo].insert(indice_interno, nome_a_ser_alterado)
                         print("Valor alterado com sucesso!")
@@ -71,10 +70,11 @@ while True:
                 while True:
                     quantidade_a_ser_alterada = input("Digite a quantidade desejada: ")
                     if quantidade_a_ser_alterada.isdigit() == True: 
-                        lista_a_recuperar_salva = lista_geral_users[indice_externo]
+                        lista_a_recuperar_salva[indice_externo] = copy.deepcopy(lista_geral_users[indice_externo])
                         del lista_geral_users[indice_externo][indice_interno]
                         lista_geral_users[indice_externo].insert(indice_interno, quantidade_a_ser_alterada)
                         print("Valor alterado com sucesso!")
+                        print(lista_a_recuperar_salva)
                         # lista_enumerada = enumerate(lista_geral_users)
                         break
                     else:
@@ -87,7 +87,7 @@ while True:
                 while True:
                     nome_a_ser_alterado = input("Digite o nome desejado: ")
                     if len(nome_a_ser_alterado) >= 3:
-                        lista_a_recuperar_salva = lista_geral_users[indice_externo]
+                        lista_a_recuperar_salva[indice_externo] = copy.deepcopy(lista_geral_users[indice_externo])
                         del lista_geral_users[indice_externo][indice_interno]
                         lista_geral_users[indice_externo].insert(indice_interno, nome_a_ser_alterado)
                         print("Valor alterado com sucesso!")
@@ -109,7 +109,7 @@ while True:
         #######################
         #Pede índice "interno"#
         #######################
-    elif entrada == "r" and len(lista_a_recuperar_salva) >= 1:
+    elif entrada == "r" and any(preenchida != ["", ""] for preenchida in lista_a_recuperar_salva):
         indice_interno = ''
         ##########################
         #Pedindo índice "externo"#
@@ -118,6 +118,7 @@ while True:
             try:
                 indice_externo = int(input("Digite o índice desejado: "))
                 if indice_externo <= len(lista_geral_users):
+                    indice_externo = (indice_externo - 1)
                     if os.name == "nt":
                         os.system('cls')
                     else:
@@ -126,38 +127,85 @@ while True:
                 else:
                     print("E")
             except ValueError:
-                print("Por favor, digite um tipo correto!")
+                print("Erro: Por favor, digite um tipo correto!")
             except IndexError:
-                print("Índice não existe na lista")
+                print("Erro: Índice não existe na lista")
             except Exception:
-                print("Erro Descon")
-        while indice_interno not in [0, 1]:
-            deseja_alterar = input("Deseja alterar o [N]ome, [Q]uantidade ou [T]odos: ").lower().strip()
-            if deseja_alterar == "n":
-                indice_interno = 0
-                lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
-                print("Valor foi alterado com sucesso!")
-                indices = range(len(lista_a_recuperar_salva))
-                for indice in indices:
-                    print(f"Valor {lista_a_recuperar_salva[indice]} está no índice: {indice + 1}")
-            elif deseja_alterar == "q":
-                indice_interno = 1
-                
-            elif deseja_alterar == "t":
-                indice_interno = 0
-                
-                indice_interno = 1 
-                
-            else:
-                print("Erro: Digite um valor válido")
-    elif entrada == "r" and len(lista_a_recuperar_salva) < 1:
+                print("Erro: Erro Desconhecido")
+        if len(lista_a_recuperar_salva[indice_externo][0]) >= 3 or lista_a_recuperar_salva[indice_externo][1].isdigit() == True:
+            while indice_interno not in [0, 1]:
+                deseja_alterar = input("Deseja recuperar o [N]ome, [Q]uantidade ou [T]odos: ").lower().strip()
+                if deseja_alterar == "n":
+                    indice_interno = 0
+                    if lista_a_recuperar_salva[indice_externo][indice_interno] != lista_geral_users[indice_externo][indice_interno]:
+                        lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
+                        print("Valor foi recuperado com sucesso!")
+                        # indices = range(len(lista_a_recuperar_salva))
+                        # for indice in indices:
+                        #     print(f"Valor {lista_a_recuperar_salva[indice]} está no índice: {indice + 1}")
+                        break
+                    else:
+                        if os.name == "nt":
+                                        os.system('cls')
+                        else:
+                            os.system('clear')
+                        print("Erro: O nome é o mesmo do atual!")
+                elif deseja_alterar == "q":
+                    indice_interno = 1
+                    if lista_a_recuperar_salva[indice_externo][indice_interno] != lista_geral_users[indice_externo][indice_interno]:
+                        lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
+                        print("Valor foi recuperado com sucesso!")
+                        # indices = range(len(lista_a_recuperar_salva))
+                        # for indice in indices:
+                        #     print(f'Valor {lista_a_recuperar_salva[indice]} está no índice: {indice + 1}')
+                        break
+                    else:
+                        if os.name == "nt":
+                                        os.system('cls')
+                        else:
+                            os.system('clear')
+                        print("Erro: A quantidade é a mesma da atual!")
+                elif deseja_alterar == "t":  
+                    indice_interno = 0
+                    if lista_a_recuperar_salva[indice_externo][indice_interno] != lista_geral_users[indice_externo][indice_interno]:
+                        lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
+                        print("Valor foi recuperado com sucesso!")
+                        indice_interno = 1
+                        if lista_a_recuperar_salva[indice_externo][indice_interno] != lista_geral_users[indice_externo][indice_interno]:
+                            lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
+                            print("Valor recuperado com sucesso!")
+                            break
+                        else:
+                            if os.name == "nt":
+                                            os.system('cls')
+                            else:
+                                os.system('clear')
+                            print("Erro: A quantidade é a mesma da atual!")
+                    else: 
+                        if os.name == "nt":
+                                        os.system('cls')
+                        else:
+                            os.system('clear')
+                        print("Erro: O nome é o mesmo do atual")
+                else:
+                    if os.name == "nt":
+                                    os.system('cls')
+                    else:
+                        os.system('clear')
+                    print("Erro: Digite um valor válido")
+        else:
+            print("Erro: Índice escolhido não possui quantidade e nome a recuperar!")
+        
+    elif entrada == "r" and any(preenchida == ["", ""] for preenchida in lista_a_recuperar_salva):
+        if os.name == "nt":
+                        os.system('cls')
+        else:
+            os.system('clear')
         print("Erro: A lista está vazia, não é possível recuperar nada!")
     elif entrada == "n":
         break
     else:       
         print("Erro: Digite um valor válido")  
-
-
 
 # while True:
 #     entrada = input("\nDeseja alterar/recuperar algum item digitado? (Digite 'Recuperar' ou 'Alterar' ou 'Não' ): ").strip().lower()
