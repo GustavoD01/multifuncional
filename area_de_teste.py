@@ -1,16 +1,18 @@
-
+import os
 #
 #Essa nova implementação possuirá "crud" baseado em listas, simulando as opreações básicas. Como se trata de List in List, será necessário captação de 2 índices
 #
 lista_geral_users = [['GUSTAVO', '10'], ['ANA','2'],['ROBERTA','3']]
 lista_recuperar = lista_geral_users
-print(20 * "-" + "Lista com índices" + 20 * "-")
+
+lista_a_recuperar_salva = []
+
 while True:
+    print("\n", 20 * "-" + "Lista com índices" + 20 * "-")
     indices = range(len(lista_geral_users))
     for indice in indices:
         print(f"Valor {lista_geral_users[indice]} está no índice: {indice + 1}")
-
-    entrada = input("\nDeseja [A]lterar, [R]ecuperar algum item digitado ou [N]ão: ").strip().lower()
+    entrada = input("\nDeseja [A]lterar, [R]ecuperar algum item digitado ou [N]ão:\n ").strip().lower()
     indice_externo = ""
 
     if entrada == "a":
@@ -19,50 +21,134 @@ while True:
         #Pedindo índice "externo"#
         ##########################
         while True:
-            indice_externo = int(input("Digite o índice desejado: "))
-            if indice_externo <= len(lista_geral_users):
-                break
-            else:
-                print("Índice maior do que a lista, tente outro por favor!")
+            try:
+                indice_externo = int(input("Digite o índice desejado: "))
+                if indice_externo <= len(lista_geral_users):
+                    if os.name == 'nt':
+                        os.system('cls')  # Limpa tela no Windows
+                    else:
+                        os.system('clear')  # Limpa tela no Linux/Mac
+
+                    break
+                else:
+                    print("ERRO: Índice maior do que a lista, tente outro por favor!")
+            except ValueError:
+                print("ERRO: Por favor digite um tipo correto")
+            except IndexError:
+                print("ERRO: Índice não existe na lista")
+            except Exception:
+                print("ERRO: Erro Desconhecido")
+                
         indice_externo = (indice_externo - 1)
         print(f"Você selecionou '{lista_geral_users[indice_externo]}'")
             #######################
             #Pede índice "interno"#
             #######################
         while indice_interno not in [0, 1]:
-            deseja_alterar = input("Deseja alterar o [N]ome ou [Q]uantidade: ").lower().strip()
+            deseja_alterar = input("Deseja alterar o [N]ome, [Q]uantidade ou [T]odos: ").lower().strip()
+            if deseja_alterar == "n":
+            ##############
+            #Alterar Nome#
+            ##############
+                indice_interno = 0
+                while True:
+                    nome_a_ser_alterado = input("Digite o nome desejado: ")
+                    if len(nome_a_ser_alterado) >= 3:
+                        lista_a_recuperar_salva = lista_geral_users[indice_externo]
+                        del lista_geral_users[indice_externo][indice_interno]
+                        lista_geral_users[indice_externo].insert(indice_interno, nome_a_ser_alterado)
+                        print("Valor alterado com sucesso!")
+                        # lista_enumerada = enumerate(lista_geral_users)
+                        break
+                    else:
+                        print("Erro: Nome deve possuir pelo menos 3 caracteres!")
+            
+            elif deseja_alterar == "q":
+            ####################
+            #Alterar Quantidade#
+            ####################
+                indice_interno = 1
+                while True:
+                    quantidade_a_ser_alterada = input("Digite a quantidade desejada: ")
+                    if quantidade_a_ser_alterada.isdigit() == True: 
+                        lista_a_recuperar_salva = lista_geral_users[indice_externo]
+                        del lista_geral_users[indice_externo][indice_interno]
+                        lista_geral_users[indice_externo].insert(indice_interno, quantidade_a_ser_alterada)
+                        print("Valor alterado com sucesso!")
+                        # lista_enumerada = enumerate(lista_geral_users)
+                        break
+                    else:
+                        print("Erro: Quantidade está incorreta")
+            elif deseja_alterar == "t":
+            ###############
+            #Alterar Todos#
+            ###############
+                indice_interno = 0
+                while True:
+                    nome_a_ser_alterado = input("Digite o nome desejado: ")
+                    if len(nome_a_ser_alterado) >= 3:
+                        lista_a_recuperar_salva.insert(indice_externo, lista_geral_users[indice_externo])
+                        del lista_geral_users[indice_externo][indice_interno]
+                        lista_geral_users[indice_externo].insert(indice_interno, nome_a_ser_alterado)
+                        print("Valor alterado com sucesso!")
+                        indice_interno = 1
+                        break
+                    else:
+                        print("Erro: Nome deve possuir pelo menos 3 caracteres!")
+                while True:
+                    quantidade_a_ser_alterada = input("Digite a quantidade desejada: ")
+                    if quantidade_a_ser_alterada.isdigit() == True:
+                        del lista_geral_users[indice_externo][indice_interno]
+                        lista_geral_users[indice_externo].insert(indice_interno, quantidade_a_ser_alterada)
+                        break
+                    else:
+                        print("Erro: Quantidade está incorreta!")
+            else:
+                print("Erro: Digite um valor válido!")
+        #######################
+        #Pede índice "interno"#
+        #######################
+    elif entrada == "r" and len(lista_a_recuperar_salva) >= 1:
+        indice_interno = ''
+        ##########################
+        #Pedindo índice "externo"#
+        ##########################
+        while True:
+            try:
+                indice_externo = int(input("Digite o índice desejado: "))
+                if indice_externo <= len(lista_geral_users):
+                    if os.name == "nt":
+                        os.system('cls')
+                    else:
+                        os.system('clear')
+                    break
+                else:
+                    print("E")
+        while indice_interno not in [0, 1]:
+            deseja_alterar = input("Deseja alterar o [N]ome, [Q]uantidade ou [T]odos: ").lower().strip()
             if deseja_alterar == "n":
                 indice_interno = 0
-                lista_a_recuperar_salva = lista_geral_users[indice_externo]
-                del lista_geral_users[indice_externo][indice_interno]
-                nome_a_ser_alterado = input("Digite o nome desejado: ")
-                lista_geral_users[indice_externo].insert(indice_interno, nome_a_ser_alterado)
-                print("Valor alterado com sucesso!")
-                # lista_enumerada = enumerate(lista_geral_users)
-                print(60 * "-")
-                print(f'Situação atual da lista: {lista_geral_users[indice]} está no índice: {indice + 1}')
-                print(60 * "-")
-                print("(*Índice atual e item respectivamente)\n")
+                lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
+                print("Valor foi alterado com sucesso!")
+                indices = range(len(lista_a_recuperar_salva))
+                for indice in indices:
+                    print(f"Valor {lista_a_recuperar_salva[indice]} está no índice: {indice + 1}")
             elif deseja_alterar == "q":
-                    indice_interno = 1
-                    quantidade_a_ser_alterada = input("Digite a quantidade desejada: ")
+                indice_interno = 1
+                
+            elif deseja_alterar == "t":
+                indice_interno = 0
+                
+                indice_interno = 1 
+                
             else:
-                    print("Digite um valor válido!")
-
-    elif entrada == "r":
-        print("Aguardando próximas features")
-
+                print("Erro: Digite um valor válido")
+    elif entrada == "r" and len(lista_a_recuperar_salva) < 1:
+        print("Erro: A lista está vazia, não é possível recuperar nada!")
     elif entrada == "n":
-        print("Aguardando próximas features")
-
-        ########################
-        #Tratamento erro básico#
-        #Posteriormente poderá #
-        #ser implementado try /#
-        #except                #
-        ########################  
-    else: 
-        print("Digite um valor válido")        
+        break
+    else:       
+        print("Erro: Digite um valor válido")  
 
 
 
