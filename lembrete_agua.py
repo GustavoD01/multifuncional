@@ -691,28 +691,34 @@ while True:
                     ###########################################################
                     #Após "NÃO" ser selecionado, apresenta dados sobre a Lista#
                     ###########################################################
+
+                        #################################
+                        #APRESENTA Lista vários Usuários#
+                        #################################
                     if isinstance(lista_geral_users[0], list):
-                        indices = range(len(lista_geral_users))
-                        for indice in indices:
-                            print(f"Valor {lista_geral_users[indice]} inserido com sucesso no índice: {indice}")
-                        print(lista_geral_users)
+                        print(20 * "-", "Lista de Usuário(os)", 20 * "-", "\n")
+                        indice_externo = range(len(lista_geral_users))
+                        for indice_externo_2 in indice_externo:
+                            indice_interno = range(len(lista_geral_users[indice_externo_2]))
+                            for indice_interno_2 in indice_interno:
+                                if indice_interno_2 == 0:
+                                    print(f"{lista_geral_users[indice_externo_2][indice_interno_2]} ", end="")
+                                else:
+                                    print(f"ingeriu {lista_geral_users[indice_externo_2][indice_interno_2]}L de água num dia e {int(lista_geral_users[indice_externo_2][indice_interno_2])/24:.2f}!")
+                                    print(f"Curiosidade, em hexadecimal você ingeriu {int(lista_geral_users[indice_externo_2][indice_interno_2]):08X}")
 
-
-
-
-
-                    indices = range(len(lista_geral_users))
-                    for indice in indices:
-                        print(f"Valor {lista_geral_users[indice]} inserido com sucesso no índice: {indice}")
-                    print(lista_geral_users)
-                    agua = int(lista_geral_users[0])
-                    print("Parabéns ", lista_geral_users[1], " sua quantidade de água foi alocada corretamente no sistema")
-                    print("Parabéns, você bebeu ", agua , " litros de água até agora")
-                    print("Em hexadecimal você bebeu", f'{agua:08X}')                        
-                    print("Por hora você bebeu ", f'{agua/24:.2f}', " água")
-                    _, nome, *_ = lista_geral_users
-                    print(_)
-                    print(nome)
+                        ###############################
+                        #APRESENTA Lista Usuário Único#
+                        ###############################
+                    else:
+                        print(20 * "-", "Lista de Usuário(os)", 20 * "-", "\n")
+                        indice_externo = range(len(lista_geral_users))
+                        for indice_externo_2 in indice_externo:
+                            if indice_externo_2 == 0:
+                                print(f"{lista_geral_users[indice_externo_2]} ", end="")
+                            else:
+                                print(f"ingeriu {lista_geral_users[indice_externo_2]}L de água num dia e {int(lista_geral_users[indice_externo_2])/24:.2f}ml de água por hora!")
+                                print(f"Curiosidade, em hexadecimal você ingeriu {int(lista_geral_users[indice_externo_2]):08X}")
             else:
                 print("Valor incorreto, Digite novamente!")
     ###################
