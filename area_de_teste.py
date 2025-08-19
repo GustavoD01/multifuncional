@@ -6,42 +6,61 @@ lista_a_recuperar_salva = ["", ""]
 
 indices = range(len(lista_geral_users))
 while True:
-    print("\n", 20 * "-" + "Lista com índice" + 20 * "-")
-    indices = range(len(lista_geral_users))
-    for indice in indices:
-        print(f'Valor {lista_geral_users[indice]} está no índice: {indice + 1}')
+    entrada = ''
+    entrada_interna = ''
+    indice_interno = ''
+    print("\n", 20 * "-" + "Lista" + 20 * "-")
+    print(f'Nome: {lista_geral_users[0]}')
+    print(f'Quantidade de água ingerida/dia: {lista_geral_users[1]}L')
     entrada = input("\nDeseja [A]lterar, [R]ecuperar algum item digitado ou [N]ão: \n").strip().lower()
-    indice_externo = ''
-    
+
     if entrada == "a":
         while True:
-            try:
-                indice_interno = int(input("Digite o índice desejado: "))
-                if indice_interno <= len(lista_geral_users):
-                    if indice_interno == "0":
-                        nome_a_ser_alterado = input("Digite o nome desejado: ")
-                        if len(nome_a_ser_alterado) >= 3:
-                            lista_a_recuperar_salva[indice_interno] = copy.deepcopy(lista_geral_users[indice_externo])
-                            del lista_geral_users[indice_externo][indice_interno]
-                            lista_geral_users[indice_externo].insert(indice_interno, nome_a_ser_alterado)
-                            print("Valor alterado com sucesso!")
-                            break
-                        else:
-                            print("Erro: Nome deve possuir pelo menos 3 caracteres")
+            # try:
+                entrada_interna = input("Digite se você deseja alterar o [N]ome ou a [Q]uantidade: ").strip().lower()
+                if entrada_interna == "n":
+                    indice_interno = 0
+                    nome_a_ser_alterado = input("Digite o nome desejado: ")
+                    if len(nome_a_ser_alterado) >= 3:
+                        lista_a_recuperar_salva[indice_interno] = copy.deepcopy(lista_geral_users[indice_interno])
+                        del lista_geral_users[indice_interno]
+                        lista_geral_users.insert(indice_interno, nome_a_ser_alterado)
+                        print("Nome alterado com sucesso!")
+                        break
                     else:
-                        quantidade_a_ser_alterada = int(input("Digite "))
+                        print("Erro: O nome deve possuir pelo menos 3 caracteres!")
+                elif entrada_interna == "q":
+                    indice_interno = 1
+                    quantidade_a_ser_alterada = input("Digite a quantidade desejada: ")
+                    if quantidade_a_ser_alterada.isdigit() == True:
+                        lista_a_recuperar_salva[indice_interno] = copy.deepcopy(lista_geral_users[indice_interno])
+                        del lista_geral_users[indice_interno]
+                        lista_geral_users.insert(indice_interno, quantidade_a_ser_alterada)
+                        print("Quantidade alterada com sucesso!")
+                        break
+                    else:
+                        print("Erro: A quantidade deve ser do tipo numérica!")
                 else:
-                    print("Erro: Índice maior do que a lista, tente outro por favor!")
-            except ValueError:
-                print("Erro: Por favor digite um tipo correto!")
-            except IndexError:
-                print("Erro: Índice não existe na lista")
-            except Exception:
-                print("Erro: Erro Desconhecido")
-
+                    print("Erro: Digite uma opção válida!")
+            # except ValueError:
+            #     print("Erro: Por favor digite um tipo correto!")
+            # except IndexError:
+            #     print("Erro: Índice não existe na lista")
+            # except Exception:
+            #     print("Erro: Erro Desconhecido")
             
     elif entrada == "r":
-        print("")
+        entrada_interna = input("Digite se você deseja recupera  o [N]ome ou a [Q]uantidade: ").strip().lower()
+        if entrada_interna == 'n':
+            indice_interno = 0
+            if lista_geral_users[indice_interno] == lista_a_recuperar_salva[indice_interno]:
+                lista_geral_users[indice_interno] = lista_a_recuperar_salva[indice_interno]
+                print("Nome foi recuperado com sucesso!")
+                break
+        elif entrada_interna == 'q':
+            indice_interno = 1
+        else:
+            print("Erro: Digite uma opção válida!")
     elif entrada == "n":
         print("")
     else:

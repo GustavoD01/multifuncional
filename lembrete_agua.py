@@ -360,7 +360,7 @@ while True:
                                             break
                                         else:
                                             if os.name == "nt":
-                                                            os.system('cls')
+                                                os.system('cls')
                                             else:
                                                 os.system('clear')
                                             print("Erro: O nome é o mesmo do atual!")
@@ -436,8 +436,8 @@ while True:
                     _, nome, *_ = lista_nomes
                     print(_)
                     print(nome)
-                else:
-                    print("Valor incorreto, Digite novamente!")
+            else:
+                print("Valor incorreto, Digite novamente!")
     elif entrada == 'n':
         print("Saindo do sistema...")
         break
