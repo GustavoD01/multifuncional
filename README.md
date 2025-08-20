@@ -30,6 +30,12 @@ Nesta seção serão listadas as versões do projeto, com um breve resumo das mu
 
 ---
 
+📸 *Link para versão 2.30:*
+
+[(prints/versao_2.50.png)](https://www.youtube.com/watch?v=0hQdHu_FxcU)
+
+---
+
 ### 🔜 Próximas versões
 
 ---
