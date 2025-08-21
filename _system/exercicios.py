@@ -1,39 +1,98 @@
-cpf = "746.824.890-70"
+######################################
+#Expressõe Regulares (Lendário Regex)#
+######################################
+import re
+import sys
+import random
 
-#nove_digitos = cpf[:9]
+nove_digitos = ''
+# for _ in range(100) #loop para gerar 100 cpf
+for i in range(9):
+    nove_digitos += str(random.randint(0,9))
 
-lista_cpf = []
-contador = 10
-soma_cpf = 0
+print(nove_digitos)
+sys.exit()
 
-for indice in cpf:
-    if indice.isdigit() == True and contador > 2:
-        var = int(indice) * contador
-        contador = contador - 1
-        soma_cpf += var
 
-if (soma_cpf * 10) % 11 > 9:
-    digito_1 = 0
-else:    
-    digito_1 = (soma_cpf * 10) % 11
+resposta = 's'
+while resposta == 's':
+    cpf = input("Digite seu CPF: ")
 
-print(f"O primeiro digito é {digito_1}")
+    # nove_digitos = cpf[:9]
 
-contador = 11
-soma_cpf = 0
-for indice in cpf:
-    if indice.isdigit() == True and contador > 1:
-        var = int(indice) * contador
-        contador = contador - 1
-        soma_cpf += var
+    ##############
+    #Função do re#
+    ##############
+    cpf_enviado_usuario = re.sub(
+        #############################
+        #Seleciona apenas os números#
+        #############################
+        r'[^0-9]',
+            #####################
+            #Substitui por vazio#
+            #####################
+        '',     
+                #############
+                #Valor usado#
+                #############
+        cpf     
+    )
 
-if (soma_cpf * 10) % 11 > 9:
-    digito_2 = 0
-else:    
-    digito_2 = (soma_cpf * 10) % 11
+    print(f'Imprimindo CPF com regex: {cpf_enviado_usuario}')
 
-print(digito_2)
+    ##########################################
+    #Retira os últimos 3 caracteres da string#
+    ##########################################
+    nove_digitos_cpf = cpf[:-3]
+    lista_cpf = []
+    contador = 10
+    soma_cpf_1 = 0
+    cpf_limpo = ""
 
+
+    ##########################
+    #Calcula 1° digito do CPF#
+    ##########################
+    for indice in cpf:
+        if indice.isdigit() == True and contador > 1:
+            cpf_limpo += indice
+            var = int(indice) * contador
+            contador = contador - 1
+            soma_cpf_1 += var
+
+    if (soma_cpf_1 * 10) % 11 > 9:
+        digito_1 = 0
+    else:    
+        digito_1 = (soma_cpf_1 * 10) % 11
+
+    cpf_limpo += str(digito_1)
+
+    ##########################
+    #Calcula 2° digito do CPF#
+    ##########################
+    contador = 11
+    soma_cpf_2 = 0
+    for indices in cpf_limpo:
+        if indices.isdigit() == True and contador > 1:
+            var = int(indices) * contador
+            contador = contador - 1
+            soma_cpf_2 += var
+
+    if (soma_cpf_2 * 10) % 11 > 9:
+        digito_2 = 0
+    else:    
+        digito_2 = (soma_cpf_2 * 10) % 11
+    
+    ##########################
+    #Imprimindo CPF correto#
+    ##########################
+    print("O cpf correto seria: ", end="")
+    cpf_final = int(cpf_limpo[:-1])
+    cpf_formatado = f"{cpf_final:,}".replace(",",".")
+    print(cpf_formatado + "-" + str(digito_1) + str(digito_2))
+    print(f"CPF inserido: {cpf}")
+    
+    resposta = input("Deseja verificar outro cpf? [S]im ou [N]ão: ")
 
 
 
