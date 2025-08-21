@@ -1,15 +1,38 @@
-senha = aaa1321
-valida = True
 
-for i in range(len(senha) - 2):
-    if senha[i] == senha[i + 1] == senha[i + 2]:
-        valida = False
-        break
+# # Refatorar código = editar seu código
 
-if valida:
-    print("Senha válida")
-else:
-    print("Senha inválida, não pode conter repetição de caracteres!")
+# def perimetro():
+#     print("Calcular perimetro de um quadrado ou retângulo")
+#     a = int(input("Digite o lado A: "))
+#     b = int(input("Digite o lado B: "))
+#     # global b -> variável (O global deixa a variável interna do escopo da função "pública", ou seja, b poderia ser utilizado sem "chamar" função)
+#     return a, b
+
+# def vericador(a, b):
+#     if a == b:
+#         resultado = (a * 2) + (b * 2)
+#         print(f'O seu quadrado tem um perimetro de {resultado}')
+#     else:
+#         resultado = (a * 2) + (b * 2)
+#         print(f'O seu retângulo tem um perimetro de {resultado}')
+
+# valores = perimetro()
+# vericador(*valores)
+
+#######################################################################################
+
+# senha = aaa1321
+# valida = True
+
+# for i in range(len(senha) - 2):
+#     if senha[i] == senha[i + 1] == senha[i + 2]:
+#         valida = False
+#         break
+
+# if valida:
+#     print("Senha válida")
+# else:
+#     print("Senha inválida, não pode conter repetição de caracteres!")
 
 
 
