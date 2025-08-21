@@ -761,6 +761,7 @@ while True:
                         else:
                             print(f"ingeriu {lista_geral_users[indice_externo_2]}L de água num dia e {int(lista_geral_users[indice_externo_2])/24:.2f}ml de água por hora!")
                             print(f"Curiosidade, em hexadecimal você ingeriu {int(lista_geral_users[indice_externo_2]):08X}L")
+                            print('Lista completa: ',*lista_geral_users)
                     Permissao = False
                     print("\n", 20 * "-", "Entrada no sistema", 20 * "-", "\n")
                     break

@@ -1,0 +1,5 @@
+# Comandos python
+
+-> python -c 'print("oi")'
+-> python -c 'print("Boa tarde");print("Tudo bem?")'
+* ; -> igual em outras linguagens, quebra de linha para interpretador
