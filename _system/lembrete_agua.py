@@ -9,6 +9,12 @@ import copy
 # Exemplo: numero_2 = decimal.Decimal(0.7)
 #
 
+def limpa_tela():
+    if os.name == "nt":
+        os.system('cls')
+    else:
+        os.system('clear')
+
 A = "ÁGUA" #Se variável for maiúscula, significa que é imutável
 B = ''
 print(B.zfill(100))
@@ -74,10 +80,7 @@ while jogo == True:
 while True:
     entrada = input("Deseja entrar no sistema? ([S]im ou [N]ão): ").strip().lower() #startswith('s') -> retorna bool de acordo com inicio da palavra e tem o endswith que também retorna bool porém com fim da palavra
     if entrada == 's':
-            if os.name == 'nt':
-                os.system('cls')  # Limpa tela no Windows
-            else:
-                os.system('clear')  # Limpa tela no Linux/Mac
+            limpa_tela()
             #########################
             #Criação Usuário e Senha#
             #########################
@@ -118,10 +121,7 @@ while True:
             #####################
             #Entrando no sistema#
             #####################
-            if os.name == "nt":
-                os.system('cls')
-            else:
-                os.system('clear')
+            limpa_tela()
             print("\n", 20 * "-", "Seja bem vindo ao controle de água 💧", 20 * "-","\n")
             print("Curiosidade: a palavra", A,"é um(a)", type(A))
             #Caso a lista_nomes contivesse valores que nunca seriam alterados, seria desejável que criasse uma tupla
@@ -230,10 +230,7 @@ while True:
                         #Adicionar mais usuários#
                         #########################
                     while True:
-                        if os.name == 'nt':
-                            os.system('cls')  # Limpa tela no Windows
-                        else:
-                            os.system('clear')  # Limpa tela no Linux/Mac
+                        limpa_tela()
                         print(lista_geral_users)
                         continuar = input(("Deseja adicionar mais um usuário? [S]im ou [N]ão: ")).strip().lower()
                         if continuar == 's':
@@ -322,16 +319,10 @@ while True:
                             try:
                                 indice_externo = int(input("Digite o índice desejado: "))
                                 if indice_externo <= len(lista_geral_users) and indice_externo > 0:
-                                    if os.name == 'nt':
-                                        os.system('cls')  # Limpa tela no Windows
-                                    else:
-                                        os.system('clear')  # Limpa tela no Linux/Mac
+                                    limpa_tela()
                                     break
                                 else:
-                                    if os.name == 'nt':
-                                        os.system('cls')  # Limpa tela no Windows
-                                    else:
-                                        os.system('clear')  # Limpa tela no Linux/Mac
+                                    limpa_tela()
                                     print("Erro: Índice está fora de range, tente outro por favor!")
                             except ValueError:
                                 print("Erro: Por favor digite um tipo correto")
@@ -358,10 +349,7 @@ while True:
                                         lista_a_recuperar_salva[indice_externo] = copy.deepcopy(lista_geral_users[indice_externo])
                                         del lista_geral_users[indice_externo][indice_interno]
                                         lista_geral_users[indice_externo].insert(indice_interno, nome_a_ser_alterado)
-                                        if os.name == 'nt':
-                                            os.system('cls')  # Limpa tela no Windows
-                                        else:
-                                            os.system('clear')  # Limpa tela no Linux/Mac
+                                        limpa_tela()
                                         print("Valor alterado com sucesso!")
                                         # lista_enumerada = enumerate(lista_geral_users)
                                         break
@@ -379,10 +367,7 @@ while True:
                                         lista_a_recuperar_salva[indice_externo] = copy.deepcopy(lista_geral_users[indice_externo])
                                         del lista_geral_users[indice_externo][indice_interno]
                                         lista_geral_users[indice_externo].insert(indice_interno, quantidade_a_ser_alterada)
-                                        if os.name == 'nt':
-                                            os.system('cls')  # Limpa tela no Windows
-                                        else:
-                                            os.system('clear')  # Limpa tela no Linux/Mac
+                                        limpa_tela()
                                         print("Valor alterado com sucesso!")
                                         # lista_enumerada = enumerate(lista_geral_users)
                                         break
@@ -402,10 +387,7 @@ while True:
                                         lista_a_recuperar_salva[indice_externo] = copy.deepcopy(lista_geral_users[indice_externo])
                                         del lista_geral_users[indice_externo][indice_interno]
                                         lista_geral_users[indice_externo].insert(indice_interno, nome_a_ser_alterado)
-                                        if os.name == 'nt':
-                                            os.system('cls')  # Limpa tela no Windows
-                                        else:
-                                            os.system('clear')  # Limpa tela no Linux/Mac
+                                        limpa_tela()
                                         print("Valor alterado com sucesso!")
                                         indice_interno = 1
                                         break
@@ -421,10 +403,7 @@ while True:
                                     if quantidade_a_ser_alterada.isdigit() == True:
                                         del lista_geral_users[indice_externo][indice_interno]
                                         lista_geral_users[indice_externo].insert(indice_interno, quantidade_a_ser_alterada)
-                                        if os.name == 'nt':
-                                            os.system('cls')  # Limpa tela no Windows
-                                        else:
-                                            os.system('clear')  # Limpa tela no Linux/Mac
+                                        limpa_tela()
                                         print("Valor alterado com sucesso!")
                                         break
                                     else:
@@ -442,10 +421,7 @@ while True:
                                 indice_externo = int(input("Digite o índice desejado: "))
                                 if indice_externo <= len(lista_geral_users) and indice_externo > 0:
                                     indice_externo = (indice_externo - 1)
-                                    if os.name == "nt":
-                                        os.system('cls')
-                                    else:
-                                        os.system('clear')
+                                    limpa_tela()
                                     break
                                 else:
                                     print("Erro: Índice está fora de range!")
@@ -474,10 +450,7 @@ while True:
                                         #     print(f"Valor {lista_a_recuperar_salva[indice]} está no índice: {indice + 1}")
                                         break
                                     else:
-                                        if os.name == "nt":
-                                            os.system('cls')
-                                        else:
-                                            os.system('clear')
+                                        limpa_tela()
                                         print("Erro: O nome é o mesmo do atual!")
                                 elif deseja_alterar == "q":
                                     indice_interno = 1
@@ -489,10 +462,7 @@ while True:
                                         print("Valor foi recuperado com sucesso!")
                                         break
                                     else:
-                                        if os.name == "nt":
-                                            os.system('cls')
-                                        else:
-                                            os.system('clear')
+                                        limpa_tela()
                                         print("Erro: A quantidade é a mesma da atual!")
                                 elif deseja_alterar == "t":  
                             ###############
@@ -517,28 +487,19 @@ while True:
 #                                               ?????????????????????????????????????????????????????
 #                                               ?Repetição excessiva problema a ser resolvido no POO?
 #                                               ?????????????????????????????????????????????????????
-                                            if os.name == "nt":
-                                                os.system('cls')
-                                            else:
-                                                os.system('clear')
+                                            limpa_tela()
                                             print("Erro: A quantidade é a mesma da atual!")
                                     else:
 #                                            ?????????????????????????????????????????????????????
 #                                            ?Repetição excessiva problema a ser resolvido no POO?
 #                                            ?????????????????????????????????????????????????????
-                                        if os.name == "nt":
-                                            os.system('cls')
-                                        else:
-                                            os.system('clear')
+                                        limpa_tela()
                                         print("Erro: O nome é o mesmo do atual")
                                 else:
 #                                        ?????????????????????????????????????????????????????
 #                                        ?Repetição excessiva problema a ser resolvido no POO?
 #                                        ?????????????????????????????????????????????????????
-                                    if os.name == "nt":
-                                        os.system('cls')
-                                    else:
-                                        os.system('clear')
+                                    limpa_tela()
                                     print("Erro: Digite um valor válido")
                         else:
                             print("Erro: Índice escolhido não possui quantidade e nome a recuperar!")
@@ -546,25 +507,16 @@ while True:
                     #Verifica se a Lista está vazia#
                     ################################
                     elif entrada == "r" and any(preenchida == ["", ""] for preenchida in lista_a_recuperar_salva):
-                        if os.name == "nt":
-                            os.system('cls')
-                        else:
-                            os.system('clear')
+                        limpa_tela()
                         print("Erro: A lista está vazia, não é possível recuperar nada!")
                     ###########################
                     #Verifica se entrada é NÃO#
                     ###########################
                     elif entrada == "n":
-                        if os.name == 'nt':
-                            os.system('cls')  # Limpa tela no Windows
-                        else:
-                            os.system('clear')  # Limpa tela no Linux/Mac
+                        limpa_tela()
                         break
                     else:
-                        if os.name == 'nt':
-                            os.system('cls')  # Limpa tela no Windows
-                        else:
-                            os.system('clear')  # Limpa tela no Linux/Mac
+                        limpa_tela()
                         print("Erro: Digite um valor válido")
             elif isinstance(lista_geral_users[0], list) == False:
                 ############################################
@@ -608,10 +560,7 @@ while True:
                                     lista_a_recuperar_salva[indice_interno] = copy.deepcopy(lista_geral_users[indice_interno])
                                     del lista_geral_users[indice_interno]
                                     lista_geral_users.insert(indice_interno, nome_a_ser_alterado)
-                                    if os.name == "nt":
-                                        os.system('cls')
-                                    else:
-                                        os.system('clear')
+                                    limpa_tela()
                                     print("Nome alterado com sucesso!")
                                     break
                                 else:
@@ -627,10 +576,7 @@ while True:
                                     lista_a_recuperar_salva[indice_interno] = copy.deepcopy(lista_geral_users[indice_interno])
                                     del lista_geral_users[indice_interno]
                                     lista_geral_users.insert(indice_interno, quantidade_a_ser_alterada)
-                                    if os.name == "nt":
-                                        os.system('cls')
-                                    else:
-                                        os.system('clear')
+                                    limpa_tela()
                                     print("Quantidade alterada com sucesso!")
                                     break
                                 else:
@@ -663,16 +609,10 @@ while True:
                                 #######################################################
                             if lista_geral_users[indice_interno] != lista_a_recuperar_salva[indice_interno] and lista_a_recuperar_salva[indice_interno] != "":
                                 lista_geral_users[indice_interno] = lista_a_recuperar_salva[indice_interno]
-                                if os.name == "nt":
-                                    os.system('cls')
-                                else:
-                                    os.system('clear')
+                                limpa_tela()
                                 print("Nome foi recuperado com sucesso!")
                             else:
-                                if os.name == "nt":
-                                    os.system('cls')
-                                else:
-                                    os.system('clear')
+                                limpa_tela()
                                 print("Erro: O nome é o mesmo do atual / ou não possui quantidade a ser recuperado!")
                         elif entrada_interna == 'q':
                             ######################
@@ -684,16 +624,10 @@ while True:
                                 #############################################################
                             if lista_geral_users[indice_interno] != lista_a_recuperar_salva[indice_interno] and lista_a_recuperar_salva[indice_interno] != "":
                                 lista_geral_users[indice_interno] = lista_a_recuperar_salva[indice_interno]
-                                if os.name == "nt":
-                                    os.system('cls')
-                                else:
-                                    os.system('clear')
+                                limpa_tela()
                                 print("A quantidade foi alterada com sucesso!")
                             else:
-                                if os.name == "nt":
-                                    os.system('cls')
-                                else:
-                                    os.system('clear')
+                                limpa_tela()
                                 print("Erro: A quantidade é a mesma da atual / ou não possui nome a ser recuperado!")
                         else:
                             print("Erro: Digite uma opção válida!")
@@ -701,29 +635,20 @@ while True:
                     #RECUPERAR selecionado, porém Lista vazia#
                     ##########################################
                     elif entrada == "r":
-                        if os.name == "nt":
-                            os.system('cls')
-                        else:
-                            os.system('clear')
+                        limpa_tela()
                         print("Erro: Não existem valores a serem recuperados!")
                     ###################
                     #"NÃO" selecionado#
                     ###################
                     elif entrada == "n":
-                        if os.name == "nt":
-                            os.system('cls')
-                        else:
-                            os.system('clear')
+                        limpa_tela()
                         print("Alterações Finalizadas!")
                         break
                     ################
                     #Opção inválida#
                     ################
                     else:
-                        if os.name == "nt":
-                            os.system('cls')
-                        else:
-                            os.system('clear')
+                        limpa_tela()
                         print("Digite uma opção válida!")
 
             ###########################################################
