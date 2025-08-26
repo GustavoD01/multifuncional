@@ -1,4 +1,15 @@
 def menu_principal():
+    print("\n", 20 * "-", "Seja bem vindo ao controle para cabeleireiro ✂️", 20 * "-","\n")
+    print("Curiosidade: a palavra", A,"é um(a)", type(A))
+    #Caso a lista_nomes contivesse valores que nunca seriam alterados, seria desejável que criasse uma tupla
+    #Formas de criar uma tupla:
+    #lista_nomes = '1', 2, '3'
+    #lista_nomes = ('1', 2, '3') -> uso de parênteses ao invés de
+    ######################
+    #Inserção de usuários#
+    ######################
+
+def menu_principal():
     #################################
     #APRESENTA Lista vários Usuários#
     #################################
