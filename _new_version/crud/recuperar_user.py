@@ -1,32 +1,32 @@
 def recuperar_2_usuarios():
-    elif entrada == "r" and any(preenchida != ["", ""] for preenchida in lista_a_recuperar_salva):
+    # elif entrada == "r" and any(preenchida != ["", ""] for preenchida in lista_a_recuperar_salva):
     indice_interno = ''
     ##########################
     #Pedindo índice "externo"#
     ##########################
     while True:
-    try:
-    indice_externo = int(input("Digite o índice desejado: "))
-    if indice_externo <= len(lista_geral_users) and indice_externo > 0:
-    indice_externo = (indice_externo - 1)
-    limpa_tela()
-    break
-    else:
-    print("Erro: Índice está fora de range!")
-    except ValueError:
-    print("Erro: Por favor, digite um tipo correto!")
-    except IndexError:
-    print("Erro: Índice não existe na lista")
-    except Exception:
-    print("Erro: Erro Desconhecido")
-    ###################################
-    #Verifica se índice não está vazio#
-    ###################################
-    if len(lista_a_recuperar_salva[indice_externo][0]) >= 3 or lista_a_recuperar_salva[indice_externo][1].isdigit() == True:
+        try:
+            indice_externo = int(input("Digite o índice desejado: "))
+            if indice_externo <= len(lista_geral_users) and indice_externo > 0:
+                indice_externo = (indice_externo - 1)
+                limpa_tela()
+                break
+            else:
+                print("Erro: Índice está fora de range!")
+        except ValueError:
+            print("Erro: Por favor, digite um tipo correto!")
+        except IndexError:
+            print("Erro: Índice não existe na lista")
+        except Exception:
+            print("Erro: Erro Desconhecido")
+        ###################################
+        #Verifica se índice não está vazio#
+        ###################################
+    #if len(lista_a_recuperar_salva[indice_externo][0]) >= 3 or lista_a_recuperar_salva[indice_externo][1].isdigit() == True:
     while indice_interno not in [0, 1]:
-    deseja_alterar = input("Deseja recuperar o [N]ome, [Q]uantidade ou [T]odos: ").lower().strip()
+        deseja_alterar = input("Deseja recuperar o [N]ome, [Q]uantidade ou [T]odos: ").lower().strip()
     if deseja_alterar == "n":
-    indice_interno = 0
+        indice_interno = 0
     #######################################################
     #Verifica se índice não está vazio ou nome não é igual#
     #######################################################
@@ -72,10 +72,7 @@ def recuperar_2_usuarios():
     print("Quantidade recuperada com sucesso!")
     break
     else:
-    #                                               ?????????????????????????????????????????????????????
-    #                                               ?Repetição excessiva problema a ser resolvido no POO?
-    #                                               ?????????????????????????????????????????????????????
-    limpa_tela()
+        limpa_tela()
     print("Erro: A quantidade é a mesma da atual!")
     else:
     #                                            ?????????????????????????????????????????????????????

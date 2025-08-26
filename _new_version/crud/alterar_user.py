@@ -1,27 +1,28 @@
+from utilidades import limpa_tela
+
 def alterar_2_usuarios():
     ###############################
     #Verifica se entrada é ALTERAR#
     ###############################
-    if entrada == "a":
     indice_interno = ""
     ##########################
     #Pedindo índice "externo"#
     ##########################
     while True:
-    try:
-    indice_externo = int(input("Digite o índice desejado: "))
-    if indice_externo <= len(lista_geral_users) and indice_externo > 0:
-    limpa_tela()
-    break
-    else:
-    limpa_tela()
-    print("Erro: Índice está fora de range, tente outro por favor!")
-    except ValueError:
-    print("Erro: Por favor digite um tipo correto")
-    except IndexError:
-    print("Erro: Índice não existe na lista")
-    except Exception:
-    print("Erro: Erro Desconhecido")
+        try:
+            indice_externo = int(input("Digite o índice desejado: "))
+            if indice_externo <= len(lista_geral_users) and indice_externo > 0:
+                limpa_tela()
+                break
+            else:
+                limpa_tela()
+            print("Erro: Índice está fora de range, tente outro por favor!")
+        except ValueError:
+            print("Erro: Por favor digite um tipo correto")
+        except IndexError:
+            print("Erro: Índice não existe na lista")
+        except Exception:
+            print("Erro: Erro Desconhecido")
 
     indice_externo = (indice_externo - 1)
     print(f"Você selecionou '{lista_geral_users[indice_externo]}'")
