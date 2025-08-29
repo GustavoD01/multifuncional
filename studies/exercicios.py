@@ -1,10 +1,37 @@
-def par_ou_impar(arg):
-    if arg % 2 == 0:
-        print(f"Seu número {arg} é par")
-    else:
-        print(f"Seu número {arg} é ímpar")
+def transformador(a, b, c):
+    return float(a), float(b), float(c)
 
-entrada = par_ou_impar(int(input("Digite seu número: ")))
+def triangulo_retangulo(a, c):
+    return ((a * c)/2)
+
+def circulo(c):
+    pi = 3.14159
+    return (pi * c ** 2)
+
+def trapezio(a, b, c):
+    return (((a + b) / 2) * c)
+
+def quadrado(b):
+    return b * b
+
+def retangulo(a, b):
+    return a * b
+
+dados = input().split()
+
+a, b, c = transformador(*dados)
+res_tri_ret = triangulo_retangulo(a, c)
+res_circ = circulo(c)
+res_trap = trapezio(a, b, c)
+res_quad = quadrado(b)
+res_ret = retangulo(a, b)
+
+print(f'TRIANGULO: {res_tri_ret:.3f}')
+print(f'CIRCULO: {res_circ:.3f}')
+print(f'TRAPEZIO: {res_trap:.3f}')
+print(f'QUADRADO: {res_quad:.3f}')
+print(f'RETANGULO: {res_ret:.3f}')
+
 # ######################################
 # #Expressõe Regulares (Lendário Regex)#
 # ######################################
