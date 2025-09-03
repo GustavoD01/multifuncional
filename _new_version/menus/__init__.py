@@ -1,1 +1,1 @@
-from .menu_principal import menu_principal, menu_lista_apresentacao
+from .menu_principal import *

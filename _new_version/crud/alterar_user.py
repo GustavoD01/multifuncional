@@ -1,5 +1,3 @@
-from utilidades import limpa_tela
-
 def alterar_2_usuarios():
     ###############################
     #Verifica se entrada é ALTERAR#

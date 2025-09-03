@@ -1,4 +1,6 @@
-def recuperar_2_usuarios():
+from main import *
+
+def recuperar_2_usuarios(lista_geral_users, lista_a_recuperar_salva):
     # elif entrada == "r" and any(preenchida != ["", ""] for preenchida in lista_a_recuperar_salva):
     indice_interno = ''
     ##########################
@@ -22,68 +24,69 @@ def recuperar_2_usuarios():
         ###################################
         #Verifica se índice não está vazio#
         ###################################
-    if len(lista_a_recuperar_salva[indice_externo][0]) >= 3 or lista_a_recuperar_salva[indice_externo][1].isdigit() == True:
-        while indice_interno not in [0, 1]:
-            deseja_alterar = input("Deseja recuperar o [N]ome, [Q]uantidade ou [T]odos: ").lower().strip()
-        if deseja_alterar == "n":
-            indice_interno = 0
-        #######################################################
-        #Verifica se índice não está vazio ou nome não é igual#
-        #######################################################
-            if lista_a_recuperar_salva[indice_externo][indice_interno] != lista_geral_users[indice_externo][indice_interno]:
-                lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
-                print("Valor foi recuperado com sucesso!")
-                # indices = range(len(lista_a_recuperar_salva))
-                # for indice in indices:
-                #     print(f"Valor {lista_a_recuperar_salva[indice]} está no índice: {indice + 1}")
-                break
+        if len(lista_a_recuperar_salva[indice_externo][0]) >= 3 or lista_a_recuperar_salva[indice_externo][1].isdigit() == True:
+            while indice_interno not in [0, 1]:
+                deseja_alterar = input("Deseja recuperar o [N]ome, [Q]uantidade ou [T]odos: ").lower().strip()
+                if deseja_alterar == "n":
+                    indice_interno = 0
+                #######################################################
+                #Verifica se índice não está vazio ou nome não é igual#
+                #######################################################
+                    if lista_a_recuperar_salva[indice_externo][indice_interno] != lista_geral_users[indice_externo][indice_interno]:
+                        lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
+                        print("Valor foi recuperado com sucesso!")
+                        # indices = range(len(lista_a_recuperar_salva))
+                        # for indice in indices:
+                        #     print(f"Valor {lista_a_recuperar_salva[indice]} está no índice: {indice + 1}")
+                        break
+                    else:
+                        limpa_tela()
+                        print("Erro: O nome é o mesmo do atual!")
+                elif deseja_alterar == "q":
+                    indice_interno = 1
+            #############################################################
+            #Verifica se índice não está vazio ou quantidade não é igual#
+            #############################################################
+                    if lista_a_recuperar_salva[indice_externo][indice_interno] != lista_geral_users[indice_externo][indice_interno]:
+                        lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
+                        print("Valor foi recuperado com sucesso!")
+                        break
+                    else:
+                        limpa_tela()
+                        print("Erro: A quantidade é a mesma da atual!")
+                elif deseja_alterar == "t":  
+                    ###############
+                    #Alterar Todos#
+                    ############### 
+                    indice_interno = 0
+                    #######################################################
+                    #Verifica se índice não está vazio ou nome não é igual#
+                    #######################################################
+                    if lista_a_recuperar_salva[indice_externo][indice_interno] != lista_geral_users[indice_externo][indice_interno]:
+                        lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
+                        print("Nome recuperado com sucesso!")
+                        #############################################################
+                        #Verifica se índice não está vazio ou quantidade não é igual#
+                        #############################################################
+                        indice_interno = 1
+                        if lista_a_recuperar_salva[indice_externo][indice_interno] != lista_geral_users[indice_externo][indice_interno]:
+                            lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
+                            print("Quantidade recuperada com sucesso!")
+                            break
+                        else:
+                            limpa_tela()
+                            print("Erro: A quantidade é a mesma da atual!")
+                    else:
+                        limpa_tela()
+                        print("Erro: O nome é o mesmo do atual")
             else:
                 limpa_tela()
-                print("Erro: O nome é o mesmo do atual!")
-    
-    #############################################################
-    #Verifica se índice não está vazio ou quantidade não é igual#
-    #############################################################
-            if lista_a_recuperar_salva[indice_externo][indice_interno] != lista_geral_users[indice_externo][indice_interno]:
-                lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
-                print("Valor foi recuperado com sucesso!")
-                break
-            else:
-                limpa_tela()
-                print("Erro: A quantidade é a mesma da atual!")
-        elif deseja_alterar == "t":  
-    ###############
-    #Alterar Todos#
-    ############### 
-    indice_interno = 0
-    #######################################################
-    #Verifica se índice não está vazio ou nome não é igual#
-    #######################################################
-    if lista_a_recuperar_salva[indice_externo][indice_interno] != lista_geral_users[indice_externo][indice_interno]:
-    lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
-    print("Nome recuperado com sucesso!")
-    #############################################################
-    #Verifica se índice não está vazio ou quantidade não é igual#
-    #############################################################
-    indice_interno = 1
-    if lista_a_recuperar_salva[indice_externo][indice_interno] != lista_geral_users[indice_externo][indice_interno]:
-    lista_geral_users[indice_externo][indice_interno] = lista_a_recuperar_salva[indice_externo][indice_interno]
-    print("Quantidade recuperada com sucesso!")
-    break
-    else:
-        limpa_tela()
-    print("Erro: A quantidade é a mesma da atual!")
-    else:
-    limpa_tela()
-    print("Erro: O nome é o mesmo do atual")
-    else:
-    limpa_tela()
-    print("Erro: Digite um valor válido")
-    else:
-    print("Erro: Índice escolhido não possui quantidade e nome a recuperar!")
-    ################################
-    #Verifica se a Lista está vazia#
-    ################################
+                print("Erro: Digite um valor válido")
+        else:
+            print("Erro: Índice escolhido não possui quantidade e nome a recuperar!")
+        ################################
+        #Verifica se a Lista está vazia#
+        ################################
 
 def recuperar_1_usuario():
     #################################
