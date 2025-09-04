@@ -31,17 +31,17 @@ def realizar_login():
     #######################
         usuario = input("Digite seu Usuário: ").strip().lower()
         senha = input("Digite sua senha: ")
-    if (usuario == usuario_permitido or usuario == "admin") and (
-        senha == senha_permitida):
-    # lista_nomes = 0
-    # string = 'b={nome2} a={nome1}'
-    # formato = string.format #quando uma função está dentro de um objeto é chamada de método
-    # nome1=A, nome2=lista_nomes #parâmetros
-        user_senha_correta = True
-        break
-    else:
-        print("Usuário ou senha incorreto! Tente novamente!")
-        #####################
-        #Entrando no sistema#
-        #####################
-        limpa_tela()
+        if (usuario == usuario_permitido or usuario == "admin") and (
+            senha == senha_permitida):
+        # lista_nomes = 0
+        # string = 'b={nome2} a={nome1}'
+        # formato = string.format #quando uma função está dentro de um objeto é chamada de método
+        # nome1=A, nome2=lista_nomes #parâmetros
+            user_senha_correta = True
+            break
+        else:
+            print("Usuário ou senha incorreto! Tente novamente!")
+            #####################
+            #Entrando no sistema#
+            #####################
+            limpa_tela()

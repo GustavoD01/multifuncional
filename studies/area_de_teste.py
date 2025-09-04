@@ -1,4 +1,3 @@
-
 # # Refatorar código = editar seu código
 
 # def perimetro():

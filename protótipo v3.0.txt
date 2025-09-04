@@ -1,9 +1,19 @@
-bem vindo 
-menu 
-(sua {lista} ou se estiver vazia, informa que está vazia)
-(Digite a opção desejada:
+--------------------------------
+
+Bem vindo ao sistema de cabeleireiro✂️
+
+Seus clientes atualmente são: {lista}
+
+ou 
+
+Sua base de clientes está vazia
+
+↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ 
+
+ Digite a opção desejada:
 [C]riar usuário(s)
 [A]lterar usuário(s)
 [D]eletar usuário(s)
 [R]ecuperar usuário(s)
-)
+
+↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑

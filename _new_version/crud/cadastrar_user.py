@@ -1,4 +1,4 @@
-def criar_1_usuario():
+def cadastrar_1_usuario():
     lista_geral_users = []
     while True:
     ###############
@@ -32,7 +32,7 @@ def criar_1_usuario():
         #elif qtd_user == '2':
         #####################
 
-def criar_2_usuarios():
+def cadastrar_2_usuarios():
     lista_geral_users = []
     while True:
         ##################
