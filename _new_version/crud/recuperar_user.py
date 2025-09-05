@@ -1,4 +1,4 @@
-from main import *
+from _new_version.main import *
 
 def recuperar_2_usuarios(lista_geral_users, lista_a_recuperar_salva):
     # elif entrada == "r" and any(preenchida != ["", ""] for preenchida in lista_a_recuperar_salva):

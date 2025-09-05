@@ -147,4 +147,5 @@ def alterar_1_usuario():
                 # except IndexError:
                 #     print("Erro: Índice não existe na lista")
                 # except Exception:
+                
                 #     print("Erro: Erro Desconhecido")

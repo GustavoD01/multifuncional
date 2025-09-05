@@ -1,4 +1,4 @@
-from main import *
+from main.utilidades import *
 
 lista_geral_users = ["","",""]
 
