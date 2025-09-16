@@ -1,3 +1,6 @@
+import os
+import sys
+
 def limpa_tela():
     if os.name == "nt":
         os.system('cls')
