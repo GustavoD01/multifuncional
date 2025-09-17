@@ -1,9 +1,10 @@
 import os
 from utilidades import *
 
+lista_geral_users = []
+
 def menu_principal():
-    numero = False
-    while numero == False:
+    while True:
         print("\nBem vindo ao HairGO✂️\n")
         print("[1] - Verificar lista clientes atual")
         print("[2] - Alterar cliente(s)")
@@ -17,27 +18,40 @@ def menu_principal():
             break
         else:
             limpa_tela()
-            print("Valor inserido está incorreto/ em desacordo com o solicitado!")
+            print("Valor inserido está incorreto / em desacordo com o solicitado!")
     return a
 
+def apresenta_lista():
+    limpa_tela()
+    print(f"Seus clientes atuais são: {lista_geral_users}")
+
+def cadastrar_cliente():
+    print("\nCadastro de clientes ✂️\n")
+    nome_1 = input("Digite o nome do cliente: ")
+    corte_1 = input("Digite o corte desejado: ")
+    lista_insercao_users = [nome_1, corte_1]
+    lista_geral_users.append(lista_insercao_users)
+    limpa_tela()
+    print("Cliente adicionado com sucesso!")
 
 def main():
-    
-    menu_principal()
-    # criar_login()
-    # realizar_login()
-    # alterar_1_usuario()
-    # alterar_2_usuarios()
-    # cadastrar_1_usuario()
-    # cadastrar_2_usuarios()
-    # criar_usuarios()
-    # finalizar_insercao_usuarios()
-    # recuperar_1_usuario()
-    # recuperar_2_usuarios()
-    # contagem_regressiva()
-    # curiosidades()
-    # tela_inicial()
-    # advinhe_o_numero()
+    while True:
+        opcoes = {
+            "1": apresenta_lista,
+            # "2": alterar_cliente,
+            # "3": deletar_cliente,
+            "4": cadastrar_cliente,
+            # "5": recuperar_cliente,
+            # "6": encerrar_programa
+        }
+
+        escolha = menu_principal()
+        if escolha in opcoes and escolha != "6":
+            opcoes[escolha]()
+        elif escolha == "6":
+            print("programa encerrado com sucesso!")
+            break
+
 
 if __name__ == "__main__":
     main()
